@@ -1,0 +1,7 @@
+<resources>
+    <string name="app_name">AroundTheWorld</string>
+    <string name="social">Social</string>
+    <string name="news">News</string>
+    <string name="shops">Shops</string>
+    <string name="ad">Advertisement</string>
+</resources>

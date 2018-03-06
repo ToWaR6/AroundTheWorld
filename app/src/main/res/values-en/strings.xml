@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">AroundTheWorld</string>
+    <string name="news">News</string>
+    <string name="social">Social</string>
+    <string name="shops">Shops</string>
+    <string name="ad">Advertisement</string>
+</resources>

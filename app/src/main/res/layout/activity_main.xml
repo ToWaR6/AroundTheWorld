@@ -1,0 +1,138 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    android:background="@color/lightBlack">
+    <TableLayout
+        android:id = "@+id/tableLayout1"
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent"
+        android:layout_margin="4dp">
+
+        <TableRow
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:layout_marginBottom="4dp">
+
+            <!--Button1 -->
+            <RelativeLayout
+                android:id = "@+id/button1"
+                android:layout_width="0dip"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:background="@color/colorTiles"
+                android:layout_marginRight="4dp"
+                android:layout_marginEnd="4dp">
+                <ImageView
+                    android:id ="@+id/newsImg"
+                    android:contentDescription="@id/newsTxt"
+                    android:layout_width="match_parent"
+                    android:layout_height="150dp"
+                    android:layout_centerInParent="true"
+                    android:src="@drawable/ic_android_black_24dp"/>
+                <TextView
+                    android:id ="@+id/newsTxt"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="@string/news"
+                    android:layout_alignParentBottom="true"
+                    android:layout_marginLeft="4dp"
+                    android:layout_marginBottom="4dp"
+                    android:layout_marginStart="4dp" />
+
+            </RelativeLayout>
+
+            <!--Button2 -->
+            <RelativeLayout
+                android:id = "@+id/button2"
+                android:layout_width="0dip"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:background="@color/colorTiles"
+                android:layout_marginRight="4dp"
+                android:layout_marginEnd="4dp">
+                <ImageView
+                    android:id ="@+id/socialImg"
+                    android:contentDescription="@string/social"
+                    android:layout_width="match_parent"
+                    android:layout_height="150dp"
+                    android:layout_centerInParent="true"
+                    android:src="@drawable/ic_android_black_24dp"/>
+                <TextView
+                    android:id = "@+id/socialTxt"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/social"
+                    android:layout_alignParentBottom="true"
+                    android:layout_marginLeft="4dp"
+                    android:layout_marginBottom="4dp"
+                    android:layout_marginStart="4dp" />
+            </RelativeLayout>
+        </TableRow>
+
+        <TableRow
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_weight="1">
+
+            <!--Button3 -->
+            <RelativeLayout
+                android:id = "@+id/button3"
+                android:layout_width="0dip"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:background="@color/colorTiles"
+                android:layout_marginRight="4dp"
+                android:layout_marginEnd="4dp"
+                >
+                <ImageView
+                    android:id ="@+id/shopsImg"
+                    android:contentDescription="@string/shops"
+                    android:layout_width="match_parent"
+                    android:layout_height="150dp"
+                    android:layout_centerInParent="true"
+                    android:src="@drawable/ic_android_black_24dp"
+                    />
+                <TextView
+                    android:id = "@+id/shopsTxt"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/shops"
+                    android:layout_alignParentBottom="true"
+                    android:layout_marginLeft="4dp"
+                    android:layout_marginBottom="4dp"
+                    android:layout_marginStart="4dp" />
+            </RelativeLayout>
+
+            <!--Button4 -->
+            <RelativeLayout
+                android:id = "@+id/button4"
+                android:layout_width="0dip"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:background="@color/colorTiles"
+                android:layout_marginRight="4dp"
+                android:layout_marginEnd="4dp">
+                <ImageView
+                    android:id ="@+id/adImg"
+                    android:contentDescription="@string/ad"
+                    android:layout_width="match_parent"
+                    android:layout_height="150dp"
+                    android:layout_centerInParent="true"
+                    android:src="@drawable/ic_android_black_24dp"/>
+                <TextView
+                    android:id = "@+id/adTxt"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/ad"
+                    android:layout_alignParentBottom="true"
+                    android:layout_marginLeft="4dp"
+                    android:layout_marginBottom="4dp"
+                    android:layout_marginStart="4dp"/>
+            </RelativeLayout>
+        </TableRow>
+
+    </TableLayout>
+</LinearLayout>
