@@ -133,6 +133,5 @@
                     android:layout_marginStart="4dp"/>
             </RelativeLayout>
         </TableRow>
-
     </TableLayout>
 </LinearLayout>
