@@ -2,8 +2,9 @@ package hasselhoff.aroundtheworld;
 
 
 import android.app.Activity;
+import android.content.Intent;
 import android.os.Bundle;
-
+import android.view.View;
 
 
 public class MainActivity extends Activity {
@@ -14,4 +15,25 @@ public class MainActivity extends Activity {
         setContentView(R.layout.activity_main);
 
     }
+
+    public void openAdsAct(View view) {
+        Intent intent = new Intent(this, AdsActivity.class);
+        startActivity(intent);
+    }
+
+    public void openShopAct(View view) {
+        Intent intent = new Intent(this, ShopActivity.class);
+        startActivity(intent);
+    }
+
+    public void openNewsAct(View view) {
+        Intent intent = new Intent(this, NewsActivity.class);
+        startActivity(intent);
+    }
+
+    public void openSocialAct(View view) {
+        Intent intent = new Intent(this, SocialActivity.class);
+        startActivity(intent);
+    }
+
 }
