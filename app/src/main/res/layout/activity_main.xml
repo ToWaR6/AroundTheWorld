@@ -1,24 +1,20 @@
 <?xml version="1.0" encoding="utf-8"?>
-
-
-
-
-
 <android.support.design.widget.CoordinatorLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent">
-    <include layout="@layout/toolbar_actionbar"/>
-    <LinearLayout
-        android:layout_width="fill_parent"
-        android:layout_height="fill_parent"
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
         android:background="@color/lightBlack">
+    <include layout="@layout/toolbar_actionbar"/>
         <TableLayout
             android:id = "@+id/tableLayout1"
-            android:layout_width="fill_parent"
-            android:layout_height="fill_parent"
-            android:layout_margin="4dp">
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_margin="4dp"
+            android:layout_below="@+id/toolbar">
 
             <TableRow
                 android:layout_width="match_parent"
@@ -53,7 +49,8 @@
                         android:layout_marginBottom="4dp"
                         android:layout_marginLeft="4dp"
                         android:layout_marginStart="4dp"
-                        android:text="@string/news" />
+                        android:text="@string/news"
+                        android:textColor="@color/colorWhite"/>
 
                 </RelativeLayout>
 
@@ -84,7 +81,8 @@
                         android:layout_marginBottom="4dp"
                         android:layout_marginLeft="4dp"
                         android:layout_marginStart="4dp"
-                        android:text="@string/social" />
+                        android:text="@string/social"
+                        android:textColor="@color/colorWhite"/>
                 </RelativeLayout>
             </TableRow>
 
@@ -120,7 +118,8 @@
                         android:layout_marginBottom="4dp"
                         android:layout_marginLeft="4dp"
                         android:layout_marginStart="4dp"
-                        android:text="@string/shops" />
+                        android:text="@string/shops"
+                        android:textColor="@color/colorWhite"/>
                 </RelativeLayout>
 
                 <!--Button4 -->
@@ -150,9 +149,10 @@
                         android:layout_marginBottom="4dp"
                         android:layout_marginLeft="4dp"
                         android:layout_marginStart="4dp"
-                        android:text="@string/ad" />
+                        android:text="@string/ad"
+                        android:textColor="@color/colorWhite"/>
                 </RelativeLayout>
             </TableRow>
         </TableLayout>
-    </LinearLayout>
+    </RelativeLayout>
 </android.support.design.widget.CoordinatorLayout>
