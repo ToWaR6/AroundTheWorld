@@ -1,9 +1,9 @@
 package hasselhoff.aroundtheworld;
 
 import android.os.Bundle;
-import android.app.Activity;
+import android.support.v7.app.AppCompatActivity;
 
-public class AdsActivity extends Activity {
+public class AdsActivity extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {

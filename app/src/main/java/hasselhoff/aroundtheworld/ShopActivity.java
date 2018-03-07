@@ -1,9 +1,9 @@
 package hasselhoff.aroundtheworld;
 
 import android.os.Bundle;
-import android.app.Activity;
+import android.support.v7.app.AppCompatActivity;
 
-public class ShopActivity extends Activity {
+public class ShopActivity extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {

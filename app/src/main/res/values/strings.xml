@@ -4,8 +4,8 @@
     <string name="news">News</string>
     <string name="shops">Shops</string>
     <string name="ad">Advertisement</string>
-    <string name="title_activity_ads">AdsActivity</string>
-    <string name="title_activity_news">NewsActivity</string>
-    <string name="title_activity_social">SocialActivity</string>
-    <string name="title_activity_shop">ShopActivity</string>
+    <string name="title_activity_ads">Advertisement</string>
+    <string name="title_activity_news">News</string>
+    <string name="title_activity_social">Social</string>
+    <string name="title_activity_shop">Shops</string>
 </resources>

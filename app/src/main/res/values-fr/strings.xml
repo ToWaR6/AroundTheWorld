@@ -5,4 +5,8 @@
     <string name="social">Social</string>
     <string name="shops">Commerces</string>
     <string name="ad">Publicités</string>
+    <string name="title_activity_ads">Publicités</string>
+    <string name="title_activity_shop">Commerces</string>
+    <string name="title_activity_social">Social</string>
+    <string name="title_activity_news">Actualités</string>
 </resources>
