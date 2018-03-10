@@ -3,7 +3,11 @@
     <color name="colorPrimary">#3F51B5</color>
     <color name="colorPrimaryDark">#303F9F</color>
     <color name="colorAccent">#FF4081</color>
-    <color name="colorTiles">#3F51B5</color>
+    <color name="colorTiles">#D32F2F</color>
+    <color name="colorShops">#D32F2F</color>
+    <color name="colorAd">#388E3C</color>
+    <color name="colorNews">#F57C00</color>
+    <color name="colorSocial">#1976D2</color>
     <color name="colorWhite">#FFFFFF</color>
     <color name="lightBlack">#212121</color>
 </resources>

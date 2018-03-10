@@ -1,10 +1,9 @@
 package hasselhoff.aroundtheworld;
 
 import android.os.Bundle;
-import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 
-public class ShopActivity extends AppCompatActivity {
+public class ShopActivity extends SubActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {

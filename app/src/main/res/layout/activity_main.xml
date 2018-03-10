@@ -30,26 +30,28 @@
                     android:layout_marginEnd="4dp"
                     android:layout_marginRight="4dp"
                     android:layout_weight="1"
-                    android:background="@color/colorTiles"
+                    android:background="@color/colorNews"
                     android:onClick="openNewsAct">
 
                     <ImageView
                         android:id="@+id/newsImg"
-                        android:layout_width="match_parent"
+                        android:layout_width="150dp"
                         android:layout_height="150dp"
                         android:layout_centerInParent="true"
                         android:contentDescription="@id/newsTxt"
-                        android:src="@drawable/ic_android_black_24dp" />
+                        android:src="@drawable/actu_icon" />
 
                     <TextView
                         android:id="@+id/newsTxt"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:layout_alignParentBottom="true"
-                        android:layout_marginBottom="4dp"
+                        android:gravity="center"
+                        android:layout_marginBottom="14dp"
                         android:layout_marginLeft="4dp"
                         android:layout_marginStart="4dp"
                         android:text="@string/news"
+                        android:textSize="8pt"
                         android:textColor="@color/colorWhite"/>
 
                 </RelativeLayout>
@@ -62,27 +64,30 @@
                     android:layout_marginEnd="4dp"
                     android:layout_marginRight="4dp"
                     android:layout_weight="1"
-                    android:background="@color/colorTiles"
+                    android:background="@color/colorSocial"
                     android:onClick="openSocialAct">
 
                     <ImageView
                         android:id="@+id/socialImg"
-                        android:layout_width="match_parent"
+                        android:layout_width="150dp"
                         android:layout_height="150dp"
                         android:layout_centerInParent="true"
                         android:contentDescription="@string/social"
-                        android:src="@drawable/ic_android_black_24dp" />
+                        android:src="@drawable/social_icon" />
 
                     <TextView
                         android:id="@+id/socialTxt"
-                        android:layout_width="wrap_content"
+                        android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:layout_alignParentBottom="true"
-                        android:layout_marginBottom="4dp"
+                        android:gravity="center"
+                        android:layout_marginBottom="14dp"
                         android:layout_marginLeft="4dp"
                         android:layout_marginStart="4dp"
                         android:text="@string/social"
-                        android:textColor="@color/colorWhite"/>
+                        android:textSize="8pt"
+                        android:textColor="@color/colorWhite"
+                        />
                 </RelativeLayout>
             </TableRow>
 
@@ -99,26 +104,28 @@
                     android:layout_marginEnd="4dp"
                     android:layout_marginRight="4dp"
                     android:layout_weight="1"
-                    android:background="@color/colorTiles"
+                    android:background="@color/colorShops"
                     android:onClick="openShopAct">
 
                     <ImageView
                         android:id="@+id/shopsImg"
-                        android:layout_width="match_parent"
+                        android:layout_width="150dp"
                         android:layout_height="150dp"
                         android:layout_centerInParent="true"
                         android:contentDescription="@string/shops"
-                        android:src="@drawable/ic_android_black_24dp" />
+                        android:src="@drawable/shop_icon" />
 
                     <TextView
                         android:id="@+id/shopsTxt"
-                        android:layout_width="wrap_content"
+                        android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:layout_alignParentBottom="true"
-                        android:layout_marginBottom="4dp"
+                        android:gravity="center"
+                        android:layout_marginBottom="14dp"
                         android:layout_marginLeft="4dp"
                         android:layout_marginStart="4dp"
                         android:text="@string/shops"
+                        android:textSize="8pt"
                         android:textColor="@color/colorWhite"/>
                 </RelativeLayout>
 
@@ -130,26 +137,28 @@
                     android:layout_marginEnd="4dp"
                     android:layout_marginRight="4dp"
                     android:layout_weight="1"
-                    android:background="@color/colorTiles"
+                    android:background="@color/colorAd"
                     android:onClick="openAdsAct">
 
                     <ImageView
                         android:id="@+id/adImg"
-                        android:layout_width="match_parent"
+                        android:layout_width="150dp"
                         android:layout_height="150dp"
                         android:layout_centerInParent="true"
                         android:contentDescription="@string/ad"
-                        android:src="@drawable/ic_android_black_24dp" />
+                        android:src="@drawable/ad_icon" />
 
                     <TextView
                         android:id="@+id/adTxt"
-                        android:layout_width="wrap_content"
+                        android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:layout_alignParentBottom="true"
-                        android:layout_marginBottom="4dp"
+                        android:gravity="center"
+                        android:layout_marginBottom="14dp"
                         android:layout_marginLeft="4dp"
                         android:layout_marginStart="4dp"
                         android:text="@string/ad"
+                        android:textSize="8pt"
                         android:textColor="@color/colorWhite"/>
                 </RelativeLayout>
             </TableRow>

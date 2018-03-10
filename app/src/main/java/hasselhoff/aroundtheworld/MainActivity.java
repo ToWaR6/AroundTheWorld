@@ -11,13 +11,22 @@ import android.view.View;
 
 public class MainActivity extends AppCompatActivity {
 
-    private Toolbar toolbar;
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         getMenuInflater().inflate(R.menu.main_menu, menu);
         return true;
     }
 
+    /**
+     * Create an activity with the default option
+     * @param activityClass Class of the activity to create
+     */
+    public void  newActivity(Class<?> activityClass){
+        Intent intent = new Intent(this,activityClass);
+        intent.addFlags(Intent.FLAG_ACTIVITY_NO_ANIMATION);
+        overridePendingTransition(0,0);
+        startActivityForResult(intent, 0);
+    }
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -26,24 +35,20 @@ public class MainActivity extends AppCompatActivity {
 
     }
 
-    public void openAdsAct(View view) {
-        Intent intent = new Intent(this, AdsActivity.class);
-        startActivity(intent);
-    }
-
-    public void openShopAct(View view) {
-        Intent intent = new Intent(this, ShopActivity.class);
-        startActivity(intent);
-    }
-
     public void openNewsAct(View view) {
-        Intent intent = new Intent(this, NewsActivity.class);
-        startActivity(intent);
+        newActivity(NewsActivity.class);
     }
 
     public void openSocialAct(View view) {
-        Intent intent = new Intent(this, SocialActivity.class);
-        startActivity(intent);
+        newActivity(SocialActivity.class);
+    }
+
+    public void openShopAct(View view) {
+        newActivity(ShopActivity.class);
+    }
+
+    public void openAdsAct(View view) {
+        newActivity(AdsActivity.class);
     }
 
 }
