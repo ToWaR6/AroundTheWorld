@@ -51,7 +51,7 @@
                         android:layout_marginLeft="4dp"
                         android:layout_marginStart="4dp"
                         android:text="@string/news"
-                        android:textSize="8pt"
+                        android:autoSizeMinTextSize="8pt"
                         android:textColor="@color/colorWhite"/>
 
                 </RelativeLayout>
@@ -85,7 +85,7 @@
                         android:layout_marginLeft="4dp"
                         android:layout_marginStart="4dp"
                         android:text="@string/social"
-                        android:textSize="8pt"
+                        android:autoSizeMinTextSize="8pt"
                         android:textColor="@color/colorWhite"
                         />
                 </RelativeLayout>
@@ -125,7 +125,7 @@
                         android:layout_marginLeft="4dp"
                         android:layout_marginStart="4dp"
                         android:text="@string/shops"
-                        android:textSize="8pt"
+                        android:autoSizeMinTextSize="8pt"
                         android:textColor="@color/colorWhite"/>
                 </RelativeLayout>
 
@@ -158,7 +158,7 @@
                         android:layout_marginLeft="4dp"
                         android:layout_marginStart="4dp"
                         android:text="@string/ad"
-                        android:textSize="8pt"
+                        android:autoSizeMinTextSize="8pt"
                         android:textColor="@color/colorWhite"/>
                 </RelativeLayout>
             </TableRow>
