@@ -1,14 +1,30 @@
 <?xml version="1.0" encoding="utf-8"?>
 <menu xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto">
+xmlns:app="http://schemas.android.com/apk/res-auto">
 
-    <item
-        android:id="@+id/menu_main_setting"
-        android:icon="@drawable/ic_settings"
-        android:orderInCategory="100"
-        app:showAsAction="always"
-        android:actionLayout="@layout/toolbar_actionbar"
-        android:title="Setting" />
+<item
+    android:id="@+id/menu_main_setting"
+    android:icon="@drawable/ic_settings"
+    android:orderInCategory="100"
+    app:showAsAction="always"
+    android:actionLayout="@layout/toolbar_actionbar"
+    android:title="Setting">
+
+    <menu>
+        <item
+           android:id = "@+id/menu_param1"
+           android:title="@string/my_params"
+            />
+        <item
+            android:id = "@+id/menu_param2"
+            android:title="@string/my_city"
+            />
+        <item
+            android:id = "@+id/menu_param3"
+            android:title="@string/my_tastes"
+            />
+    </menu>
+</item>
 
 
 </menu>

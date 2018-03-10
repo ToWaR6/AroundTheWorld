@@ -8,4 +8,7 @@
     <string name="title_activity_news">News</string>
     <string name="title_activity_social">Social</string>
     <string name="title_activity_shop">Shops</string>
+    <string name="my_params">My parameters</string>
+    <string name="my_city">My city</string>
+    <string name="my_tastes">I like...</string>
 </resources>

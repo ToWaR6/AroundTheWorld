@@ -18,19 +18,18 @@
         <activity
             android:name=".AdsActivity"
             android:label="@string/title_activity_ads"
-            android:theme="@style/noAnimTheme"/>
+            />
         <activity
             android:name=".NewsActivity"
             android:label="@string/title_activity_news"
-            android:theme="@style/noAnimTheme"/>
+            />
         <activity
             android:name=".SocialActivity"
             android:label="@string/title_activity_social"
-            android:theme="@style/noAnimTheme"/>
+            />
         <activity
             android:name=".ShopActivity"
-            android:label="@string/title_activity_shop"
-            android:theme="@style/noAnimTheme"/>
+            android:label="@string/title_activity_shop" />
     </application>
 
 </manifest>

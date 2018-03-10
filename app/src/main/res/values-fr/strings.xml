@@ -9,4 +9,7 @@
     <string name="title_activity_shop">Commerces</string>
     <string name="title_activity_social">Social</string>
     <string name="title_activity_news">Actualités</string>
+    <string name="my_params">Mes paramètres</string>
+    <string name="my_city">Ma ville</string>
+    <string name="my_tastes">J\'aime...</string>
 </resources>
