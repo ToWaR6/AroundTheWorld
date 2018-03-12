@@ -12,4 +12,5 @@
     <string name="my_params">Mes paramètres</string>
     <string name="my_city">Ma ville</string>
     <string name="my_tastes">J\'aime...</string>
+    <string name="title_activity_city">Ma ville</string>
 </resources>

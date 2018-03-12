@@ -12,4 +12,5 @@
     <string name="my_params">My parameters</string>
     <string name="my_city">My city</string>
     <string name="my_tastes">I like...</string>
+    <string name="title_activity_city">My city</string>
 </resources>
