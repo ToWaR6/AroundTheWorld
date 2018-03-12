@@ -30,6 +30,10 @@
         <activity
             android:name=".ShopActivity"
             android:label="@string/title_activity_shop" />
+        <activity android:name=".CityActivity"
+        android:label ="@string/title_activity_city"/>
     </application>
-
+    <meta-data
+        android:name="com.google.android.geo.API_KEY"
+        android:value="AIzaSyCJovsqBYgTW9wtG42xD408KmmqlD4TxqU"/>
 </manifest>
