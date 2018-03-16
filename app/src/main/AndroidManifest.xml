@@ -32,8 +32,9 @@
             android:label="@string/title_activity_shop" />
         <activity android:name=".CityActivity"
         android:label ="@string/title_activity_city"/>
+        <meta-data
+            android:name="com.google.android.geo.API_KEY"
+            android:value="AIzaSyDoIYt8yv4aC-Gs7OKVPtYL6oPfdBlJphY"/>
     </application>
-    <meta-data
-        android:name="com.google.android.geo.API_KEY"
-        android:value=""/>
+
 </manifest>

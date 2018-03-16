@@ -13,4 +13,6 @@
     <string name="my_city">My city</string>
     <string name="my_tastes">I like...</string>
     <string name="title_activity_city">My city</string>
+    <string name="confirm">Confirm</string>
+    <string name="cancel">Cancel</string>
 </resources>

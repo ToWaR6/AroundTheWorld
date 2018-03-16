@@ -10,7 +10,7 @@
 
         <LinearLayout
             android:id = "@+id/linearLayoutCity"
-            android:orientation="horizontal"
+            android:orientation="vertical"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:layout_below="@+id/toolbar">
@@ -21,6 +21,25 @@
                 android:name="com.google.android.gms.location.places.ui.PlaceAutocompleteFragment"
 
                 />
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:gravity="right"
+                android:padding="5dp">
+                <Button
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text ="@string/confirm"
+                    />
+                <Button
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text ="@string/cancel"
+                    android:onClick="close"
+                    />
+            </LinearLayout>
+
         </LinearLayout>
 
 

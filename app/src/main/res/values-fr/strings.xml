@@ -13,4 +13,6 @@
     <string name="my_city">Ma ville</string>
     <string name="my_tastes">J\'aime...</string>
     <string name="title_activity_city">Ma ville</string>
+    <string name="confirm">Valider</string>
+    <string name="cancel">Annuler</string>
 </resources>
