@@ -15,4 +15,6 @@
     <string name="title_activity_city">Ma ville</string>
     <string name="confirm">Valider</string>
     <string name="cancel">Annuler</string>
+    <string name="you_are">"Vous êtes à "</string>
+    <string name="change_city">"Changer de ville : "</string>
 </resources>

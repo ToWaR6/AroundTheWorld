@@ -10,4 +10,6 @@
     <color name="colorSocial">#1976D2</color>
     <color name="colorWhite">#FFFFFF</color>
     <color name="lightBlack">#212121</color>
+    <color name = "cancelButton">#E57373</color>
+    <color name = "validateButton">#81C784</color>
 </resources>

@@ -14,6 +14,30 @@
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:layout_below="@+id/toolbar">
+
+            <ImageView
+                android:layout_width="match_parent"
+                android:layout_height="100dp"
+                app:srcCompat="@drawable/cityscape" />
+
+            <TextView
+                android:id ="@+id/text_you_are"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text = "@string/you_are"
+                android:gravity="center"
+                android:textSize="20sp"
+                />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text = "@string/change_city"
+                android:textSize = "18sp"
+                android:layout_marginRight="8dp"
+                android:layout_marginLeft="8dp"
+                android:textStyle="italic"
+                android:layout_marginTop="18dp"/>
             <fragment
                 android:id="@+id/place_autocomplete_fragment"
                 android:layout_width="match_parent"
@@ -30,14 +54,18 @@
                 <Button
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text ="@string/confirm"
+                    android:text ="@string/cancel"
+                    android:onClick="close"
+                    android:backgroundTint="@color/cancelButton"
                     />
                 <Button
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text ="@string/cancel"
-                    android:onClick="close"
+                    android:text ="@string/confirm"
+                    android:onClick="validate"
+                    android:backgroundTint="@color/validateButton"
                     />
+
             </LinearLayout>
 
         </LinearLayout>

@@ -14,4 +14,6 @@
     <string name="title_activity_city">My City</string>
     <string name="confirm">Confirm</string>
     <string name="cancel">Cancel</string>
+    <string name="you_are">"You are in "</string>
+    <string name="change_city">Change city :</string>
 </resources>
