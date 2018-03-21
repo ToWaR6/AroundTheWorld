@@ -20,8 +20,8 @@
     <string name="title_activity_setting">My settings</string>
     <string name="my_info">My information</string>
     <string name="name">"Name : "</string>
-    <string name="firstname">First name :</string>
-    <string name="birthday">Birthday :</string>
+    <string name="firstname">"First name : "</string>
+    <string name="birthday">"Birthday : "</string>
     <string name="gender">"Gender : "</string>
     <string name="size">"Size : "</string>
     <string name="weight">"Weight : "</string>
