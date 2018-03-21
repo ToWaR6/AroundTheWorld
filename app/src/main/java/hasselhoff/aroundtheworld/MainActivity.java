@@ -56,4 +56,7 @@ public class MainActivity extends AppCompatActivity {
         newActivity(CityActivity.class);
     }
 
+    public void openMyParam (MenuItem menuItem){newActivity(MySettingsActivity.class);}
+
+
 }

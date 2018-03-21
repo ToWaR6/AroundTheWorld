@@ -16,4 +16,13 @@
     <string name="cancel">Cancel</string>
     <string name="you_are">"You are in "</string>
     <string name="change_city">Change city :</string>
+    <string name="title_activity_setting">My settings</string>
+    <string name="my_info">My information</string>
+    <string name="name">"Name : "</string>
+    <string name="firstname">"First name : "</string>
+    <string name="birthday">Birthday :</string>
+    <string name="gender">Gender :</string>
+    <string name="size">Size :</string>
+    <string name="weight">Weight :</string>
+    <string name="update">Update</string>
 </resources>

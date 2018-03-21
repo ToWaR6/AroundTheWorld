@@ -17,4 +17,13 @@
     <string name="cancel">Annuler</string>
     <string name="you_are">"Vous êtes à "</string>
     <string name="change_city">"Changer de ville : "</string>
+    <string name="title_activity_setting">Mes paramètres</string>
+    <string name="my_info">Mes informations</string>
+    <string name="name">"Nom : "</string>
+    <string name="firstname">Prénom :</string>
+    <string name="birthday">Anniversaire :</string>
+    <string name="gender">Genre :</string>
+    <string name="size">"Taille : "</string>
+    <string name="weight">"Poids : "</string>
+    <string name="update">Mettre à jour</string>
 </resources>

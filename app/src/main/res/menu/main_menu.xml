@@ -14,6 +14,7 @@ xmlns:app="http://schemas.android.com/apk/res-auto">
         <item
            android:id = "@+id/menu_param1"
            android:title="@string/my_params"
+           android:onClick="openMyParam"
             />
         <item
             android:id = "@+id/menu_param2"

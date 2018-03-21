@@ -14,7 +14,7 @@ public class DatabaseHandler extends SQLiteOpenHelper {
                     PersonContract.FeedEntry.COLUMN_FIRSTNAME + " TEXT, " +
                     PersonContract.FeedEntry.COLUMN_BIRTHDAY + " TEXT, " +
                     PersonContract.FeedEntry.COLUMN_GENDER + " TEXT, " +
-                    PersonContract.FeedEntry.COLUMN_CITY + " TEXT" +
+                    PersonContract.FeedEntry.COLUMN_CITY + " TEXT," +
                     PersonContract.FeedEntry.COLUMN_SIZE + " REAL, " +
                     PersonContract.FeedEntry.COLUMN_WEIGHT + " REAL) ; ";
     private static final String SQL_DELETE_ENTRIES =
@@ -32,6 +32,8 @@ public class DatabaseHandler extends SQLiteOpenHelper {
         Log.i("CREATE","NEW CREATE");
         sqLiteDatabase.execSQL(SQL_CREATE_ENTRIES);
         ContentValues values = new ContentValues();
+        values.put(PersonContract.FeedEntry.COLUMN_NAME,"Doe");
+        values.put(PersonContract.FeedEntry.COLUMN_FIRSTNAME,"John");
         values.put(PersonContract.FeedEntry.COLUMN_CITY,"Montpellier");
         sqLiteDatabase.insert(PersonContract.FeedEntry.TABLE_NAME,null,values);
     }
