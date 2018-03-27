@@ -10,7 +10,7 @@ import android.view.MenuItem;
 import android.view.View;
 
 
-public class MainActivity extends AppCompatActivity {
+public class MainActivity extends SubActivity {
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
@@ -18,16 +18,6 @@ public class MainActivity extends AppCompatActivity {
         return true;
     }
 
-    /**
-     * Create an activity with the default option
-     * @param activityClass Class of the activity to create
-     */
-    public void  newActivity(Class<?> activityClass){
-        Intent intent = new Intent(this,activityClass);
-        intent.addFlags(Intent.FLAG_ACTIVITY_NO_ANIMATION);
-        overridePendingTransition(0,0);
-        startActivityForResult(intent, 0);
-    }
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);

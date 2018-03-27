@@ -22,7 +22,8 @@
     <string name="firstname">"First name : "</string>
     <string name="birthday">Birthday :</string>
     <string name="gender">Gender :</string>
-    <string name="size">Size :</string>
-    <string name="weight">Weight :</string>
+    <string name="size">Size (m) :</string>
+    <string name="weight">Weight (kg) :</string>
     <string name="update">Update</string>
+    <string name="title_activity_update_setting">Update settings</string>
 </resources>
