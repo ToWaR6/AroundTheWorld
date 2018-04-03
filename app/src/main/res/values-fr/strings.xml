@@ -27,4 +27,7 @@
     <string name="weight">"Poids (kg) : "</string>
     <string name="update">Mettre à jour</string>
     <string name="title_activity_update_setting">Mettre à jour</string>
+    <string name="dateFormat">dd/MM/yyyy</string>
+    <string name="weather">Météo</string>
+    <string name="title_activity_weather">Météo</string>
 </resources>
