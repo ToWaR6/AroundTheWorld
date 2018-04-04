@@ -92,6 +92,9 @@ public class CityActivity extends SubActivity implements OnConnectionFailedListe
         CityActivity.this.finish();
     }
     public void validate(View view){
+        PlaceAutocompleteFragment autocompleteFragment =  (PlaceAutocompleteFragment)
+                getFragmentManager().findFragmentById(R.id.place_autocomplete_fragment);
+        autocompleteFragment.setText("");
         if(!newCity.equals("")){
             SQLiteDatabase db = myDatabaseHandler.getWritableDatabase();
             ContentValues values = new ContentValues();
