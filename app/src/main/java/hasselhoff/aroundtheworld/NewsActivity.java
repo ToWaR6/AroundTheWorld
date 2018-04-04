@@ -4,7 +4,6 @@ package hasselhoff.aroundtheworld;
 import android.app.FragmentTransaction;
 import android.os.Bundle;
 import android.support.v7.widget.Toolbar;
-import android.util.Log;
 import android.view.View;
 
 
