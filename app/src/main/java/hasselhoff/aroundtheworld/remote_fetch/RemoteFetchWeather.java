@@ -1,6 +1,7 @@
 package hasselhoff.aroundtheworld.remote_fetch;
 
 import android.content.Context;
+import android.util.Log;
 
 import org.json.JSONException;
 import org.json.JSONObject;
@@ -21,12 +22,12 @@ public class RemoteFetchWeather {
 
     public static JSONObject getJSON(Context context, String city){
         try{
-            URL url = new URL(String.format(OPEN_WEATHER_MAP_API, city));
+            URL url = new URL(String.format(OPEN_WEATHER_MAP_API, city)); //Ajout de la ville dans l'url
             HttpURLConnection connection = (HttpURLConnection) url.openConnection();
-            connection.addRequestProperty("x-api-key", context.getString(R.string.weatherAPIKey));
+            connection.addRequestProperty("x-api-key", context.getString(R.string.weatherAPIKey)); //Ajout la clef de l'api contenu dans les ressources
             BufferedReader reader = new BufferedReader(new InputStreamReader(connection.getInputStream()));
             StringBuffer json = new StringBuffer(1024);
-            String tmp ="";
+            String tmp;
             while((tmp=reader.readLine())!= null)
                 json.append(tmp).append("\n");
             reader.close();
