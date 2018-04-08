@@ -13,6 +13,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
+import android.widget.ScrollView;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -38,9 +39,10 @@ public class WeatherFragment extends Fragment{
     TextView currentCityTextView;
     TextView maxTempTextView;
     TextView minTempTextView;
-    LinearLayout background;
+    ScrollView background;
     public WeatherFragment(){
         handler = new Handler();
+        setRetainInstance(true); //Evite crash when rotating screen
     }
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState){
         View rootView =  inflater.inflate(R.layout.fragment_weather,container,false);
