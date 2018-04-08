@@ -1,23 +1,24 @@
 package hasselhoff.aroundtheworld;
 
 import android.app.Fragment;
-import android.content.Context;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
+import android.graphics.drawable.Drawable;
 import android.os.Bundle;
 import android.os.Handler;
+import android.support.v4.content.ContextCompat;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ImageView;
+import android.widget.LinearLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 
 import org.json.JSONException;
 import org.json.JSONObject;
-import org.w3c.dom.Text;
 
-import java.text.DateFormat;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.Locale;
@@ -26,27 +27,31 @@ import hasselhoff.aroundtheworld.database.DatabaseHandler;
 import hasselhoff.aroundtheworld.database.PersonContract;
 import hasselhoff.aroundtheworld.remote_fetch.RemoteFetchWeather;
 
-/**
- * Created by Marvin on 03/04/2018.
- */
-
 public class WeatherFragment extends Fragment{
 
     Handler handler;
-
+    String currentCity;
     TextView dateTextView;
-    TextView weatherTextView;
+    ImageView weatherImageView;
     TextView humidityTextView;
     TextView temperatureTextView;
+    TextView currentCityTextView;
+    TextView maxTempTextView;
+    TextView minTempTextView;
+    LinearLayout background;
     public WeatherFragment(){
         handler = new Handler();
     }
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState){
         View rootView =  inflater.inflate(R.layout.fragment_weather,container,false);
-        dateTextView = (TextView)rootView.findViewById(R.id.dateWeather);
-        weatherTextView = (TextView)rootView.findViewById(R.id.weather);
-        humidityTextView = (TextView)rootView.findViewById(R.id.humidity);
-        temperatureTextView = (TextView)rootView.findViewById(R.id.temperature);
+        dateTextView = rootView.findViewById(R.id.dateWeather);
+        weatherImageView = rootView.findViewById(R.id.weather);
+        humidityTextView = rootView.findViewById(R.id.humidity);
+        temperatureTextView = rootView.findViewById(R.id.temperature);
+        minTempTextView = rootView.findViewById(R.id.minimumTemp);
+        maxTempTextView = rootView.findViewById(R.id.maximumTemp);
+        background = rootView.findViewById(R.id.background);
+        currentCityTextView = rootView.findViewById(R.id.currentCity);
         return rootView;
     }
     public void onCreate(Bundle savedInstanceState){
@@ -65,10 +70,9 @@ public class WeatherFragment extends Fragment{
                 null,                   // don't filter by row groups
                 null               // The sort order
         );
-        String currentCity= "Paris";
-        if(cursor.moveToFirst()==true){
+        if(cursor.moveToFirst()){
             currentCity = cursor.getString(cursor.getColumnIndex(PersonContract.FeedEntry.COLUMN_CITY));
-        };
+        }
         cursor.close();
         updateWeatherData(currentCity);
     }
@@ -96,9 +100,23 @@ public class WeatherFragment extends Fragment{
 
     private void renderWeather(JSONObject json){
         try{
-           SimpleDateFormat df = new SimpleDateFormat("EEEE dd MMMM  HH:mm ");
-           String date = df.format(new Date(json.getLong("dt")*1000));
-           dateTextView.setText(date);
+            SimpleDateFormat df = new SimpleDateFormat("EEEE dd MMMM  HH:mm ",Locale.FRANCE);
+            String date = df.format(new Date(json.getLong("dt")*1000));
+            dateTextView.setText(date);
+            currentCityTextView.setText(currentCity);
+            JSONObject mainJson = json.getJSONObject("main");
+            double constanteKelvin = 273.15;
+            double minTemp = mainJson.getDouble("temp_min")- constanteKelvin;
+            minTempTextView.setText("Min : " + String.format("%.2f", minTemp ) + " ℃");
+
+            double maxTemp = mainJson.getDouble("temp_max") - constanteKelvin;
+            maxTempTextView.setText("Max : " + String.format("%.2f",maxTemp) + " °C");
+
+            humidityTextView.append(mainJson.getString("humidity") + "%");
+
+            double temp = mainJson.getDouble("temp") - constanteKelvin;
+            temperatureTextView.setText(String.format("%.2f",temp) + "°C");
+
             JSONObject details = json.getJSONArray("weather").getJSONObject(0);
             setWeatherIcon(details.getInt("id"),
                     json.getJSONObject("sys").getLong("sunrise")*1000,
@@ -109,37 +127,50 @@ public class WeatherFragment extends Fragment{
     }
 
     private void setWeatherIcon(int actualId, long sunrise,long sunset){
-        int id = actualId/100; //Car api supporte plus de météo differente que nous
-        String icon = "";
-        if(actualId == 800){
-            long currentTime = new Date().getTime();
-            if(currentTime>=sunrise && currentTime<sunset)
-                icon = "Jour";
-            else
-                icon = "Nuit";
-        }else{
+        int id = actualId/100; //Car api supporte plus de météos differentes que nous
+        Drawable icon=null;
+
+        long currentTime = new Date().getTime();
+        boolean isDayLight = currentTime>=sunrise && currentTime<sunset;
+        if(isDayLight)
+            background.setBackgroundColor(ContextCompat.getColor(getActivity(),R.color.blueSky));
+        else
+            background.setBackgroundColor(ContextCompat.getColor(getActivity(),R.color.nightSky));
+
+        if(actualId==800){
+            if(isDayLight){
+                icon = ContextCompat.getDrawable(getActivity(),R.drawable.soleil);
+            }
+            else{
+                icon = ContextCompat.getDrawable(getActivity(),R.drawable.nuit);
+            }
+        }
+        else{
             switch (id){
                 case 2 :
-                    icon = "Orage";
+                    icon = ContextCompat.getDrawable(getActivity(),R.drawable.orage);
                     break;
                 case 3 :
-                    icon = "Bruine";
+                    icon = ContextCompat.getDrawable(getActivity(),R.drawable.bruine);
                     break;
-                case 7 :
-                    icon = "Brouillard";
+               case 7 :
+                   icon = ContextCompat.getDrawable(getActivity(),R.drawable.brouillard);
+                   break;
+                case 6 :
+                    icon = ContextCompat.getDrawable(getActivity(),R.drawable.neige);
                     break;
                 case 8 :
-                    icon = "Nuageux";
-                    break;
-                case 6 :
-                    icon = "Neige";
+                    if(isDayLight)
+                        icon = ContextCompat.getDrawable(getActivity(),R.drawable.nuageux);
+                    else
+                        icon = ContextCompat.getDrawable(getActivity(),R.drawable.nuageux_nuit);
                     break;
                 case 5 :
-                    icon = "Pluie";
+                    icon = ContextCompat.getDrawable(getActivity(),R.drawable.pluie);
                     break;
             }
         }
-        weatherTextView.setText(icon);
+        weatherImageView.setImageDrawable(icon);
     }
 
 }
