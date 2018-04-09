@@ -32,4 +32,7 @@
     <string name="title_activity_weather">Météo</string>
     <string name="weather_not_found">La météo n'a pas été trouvé</string>
     <string name="humidity">"Humidité : "</string>
+    <string name="not_interesting">Pas intéressé</string>
+    <string name="interesting">Intéressé</string>
+    <string name="without_opinion">Sans avis</string>
 </resources>

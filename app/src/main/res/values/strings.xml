@@ -31,4 +31,7 @@
     <string name="title_activity_weather">Weather</string>
     <string name="weather_not_found">Weather not found</string>
     <string name="humidity">"Humidity : "</string>
+    <string name="interesting">Interesting</string>
+    <string name="not_interesting">Not interesting</string>
+    <string name="without_opinion">Without opinion</string>
 </resources>
