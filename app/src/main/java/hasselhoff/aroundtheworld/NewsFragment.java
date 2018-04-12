@@ -7,9 +7,17 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ListView;
+import android.widget.Toast;
+
+import org.json.JSONArray;
+import org.json.JSONException;
+import org.json.JSONObject;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.concurrent.ExecutionException;
+
+import hasselhoff.aroundtheworld.remote_fetch.RemoteFetchNews;
 
 
 public class NewsFragment extends Fragment {
@@ -27,7 +35,25 @@ public class NewsFragment extends Fragment {
     @Override
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, Bundle savedInstanceState) {
         View rootView = inflater.inflate(R.layout.fragment_news, container, false);
-        this.listNews = generateNews(10);
+
+        //this.listNews = generateNews(10);
+
+
+        try {
+            JSONObject json = new RemoteFetchNews(getActivity()).execute("montpellier").get();
+            if (json == null) {
+                this.listNews = generateNews(0);
+                Toast.makeText(getActivity(), "Erreur lors du chargement de l'api de news", Toast.LENGTH_SHORT).show();
+            } else {
+                this.listNews = getNewsFromJson(json);
+            }
+        } catch (JSONException e) {
+            e.printStackTrace();
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        } catch (ExecutionException e) {
+            e.printStackTrace();
+        }
         NewsAdapter adapter = new NewsAdapter(getActivity(), this.listNews);
         this.viewListNews = (ListView) rootView.findViewById(R.id.listNews);
         this.viewListNews.setAdapter(adapter);
@@ -46,6 +72,17 @@ public class NewsFragment extends Fragment {
         List<News> list = new ArrayList<News>();
         for (int i = 1; i <= nbNews; i++) {
             list.add(new News("Titre "+i, "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus molestie lorem porta, vestibulum libero vitae, egestas mauris." , this.urlImage));
+        }
+        return list;
+    }
+
+    private List<News> getNewsFromJson(JSONObject json) throws JSONException {
+        List<News> list = new ArrayList<News>();
+        JSONArray arrayNews = json.getJSONArray("articles");
+        JSONObject article;
+        for (int i = 0; i < arrayNews.length(); i++) {
+            article = ((JSONObject) arrayNews.get(i));
+            list.add(new News(article.getString("title"), article.getString("description"), article.getString("urlToImage")));
         }
         return list;
     }
