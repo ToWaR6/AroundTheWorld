@@ -35,4 +35,5 @@
     <string name="not_interesting">Pas intéressé</string>
     <string name="interesting">Intéressé</string>
     <string name="without_opinion">Sans avis</string>
+    <string name="ad_not_found">Désolé il n\'y a plus de publicité</string>
 </resources>

@@ -35,4 +35,5 @@
     <string name="interesting">Interesting</string>
     <string name="not_interesting">Not interesting</string>
     <string name="without_opinion">Without opinion</string>
+    <string name="ad_not_found">No more ad to display</string>
 </resources>

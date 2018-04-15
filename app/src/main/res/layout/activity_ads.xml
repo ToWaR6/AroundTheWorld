@@ -19,6 +19,7 @@
                 android:text ="@string/ad"
                 android:textAppearance="@style/TextAppearance.AppCompat.Large"/>
             <ImageView
+                android:id="@+id/adImage"
                 android:layout_width="wrap_content"
                 android:layout_height="250dp"
                 android:src="@drawable/pub"
