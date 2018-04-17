@@ -1,14 +1,14 @@
 package hasselhoff.aroundtheworld;
 
 
-import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
-import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 
+import hasselhoff.aroundtheworld.database.KeyPreferences;
 
 public class MainActivity extends SubActivity {
 
@@ -23,7 +23,10 @@ public class MainActivity extends SubActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         setSupportActionBar((Toolbar) findViewById(R.id.toolbar));
-
+        SharedPreferences sharedPreferences = getBaseContext().getSharedPreferences(KeyPreferences.PREFS,MODE_PRIVATE);
+        String currentCity = sharedPreferences.getString(KeyPreferences.CITY,"");
+        if(currentCity.equals(""))
+            sharedPreferences.edit().putString(KeyPreferences.CITY,getString(R.string.firstCity)).apply();
     }
 
     public void openNewsAct(View view) {

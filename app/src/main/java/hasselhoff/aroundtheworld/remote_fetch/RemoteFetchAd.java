@@ -1,23 +1,22 @@
 package hasselhoff.aroundtheworld.remote_fetch;
 
 import android.content.Context;
+import android.util.Log;
 
+import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 
-import java.io.BufferedOutputStream;
 import java.io.BufferedReader;
-import java.io.BufferedWriter;
+import java.io.DataOutputStream;
 import java.io.IOException;
 import java.io.InputStreamReader;
-import java.io.OutputStream;
-import java.io.OutputStreamWriter;
 import java.net.HttpURLConnection;
 import java.net.MalformedURLException;
 import java.net.URL;
 import java.net.URLEncoder;
+import java.util.ArrayList;
 
-import hasselhoff.aroundtheworld.R;
 
 
 
@@ -39,10 +38,7 @@ public class RemoteFetchAd {
             while((tmp=reader.readLine())!= null)
                 json.append(tmp).append("\n");
             reader.close();
-            JSONObject data = new JSONObject(json.toString());
-            /*if(data.getInt("cod") != 200)// != Réussite
-                return null;*/
-            return data;
+            return new JSONObject(json.toString());
         } catch (MalformedURLException e) {
             e.printStackTrace();
         } catch (IOException e) {
@@ -53,32 +49,36 @@ public class RemoteFetchAd {
         return null;
     }
 
-    public static JSONObject postJSON(Context context, String city,Object[] _ids) {
+    public static JSONObject postJSON(Context context, String city,ArrayList<String> _ids) {
         try {
             String urlString = AD_API + "/ads/city/%s";
             city = URLEncoder.encode(city, "utf-8");
             urlString = String.format(urlString, city);
             URL url = new URL(urlString); //Ajout de la ville dans l'url
             HttpURLConnection connection = (HttpURLConnection) url.openConnection();
+            connection.setDoOutput(true);
             connection.setRequestMethod("POST");
-            OutputStream out = new BufferedOutputStream(connection.getOutputStream());
-            BufferedWriter writer = new BufferedWriter(new OutputStreamWriter(out, "UTF-8"));
+            connection.setRequestProperty("Content-Type", "application/json");
+            connection.setRequestProperty("Accept","application/json");
 
-            writer.write("{_id : [");
-            for (int index = 0; index < _ids.length; index++) {
-                writer.write((String)_ids[index]);
-                if (index != _ids.length - 1)
-                    writer.write(",");
-            }
-            writer.write("]}");
-            writer.flush();
-            writer.close();
-            out.close();
+            JSONObject postData = new JSONObject();
+            JSONArray idArray = new JSONArray(_ids);
+
+            postData.put("_id",idArray);
+
+            DataOutputStream wr = new DataOutputStream(connection.getOutputStream());
+            wr.writeBytes("" + postData.toString());
+            wr.flush();
+            wr.close();
+
+            Log.i("test",postData.toString());
+
             BufferedReader reader = new BufferedReader(new InputStreamReader(connection.getInputStream()));
             StringBuffer json = new StringBuffer(1024);
             String tmp;
             while ((tmp = reader.readLine()) != null)
                 json.append(tmp).append("\n");
+
             reader.close();
             JSONObject data = new JSONObject(json.toString());
             /*if(data.getInt("cod") != 200)// != Réussite
@@ -97,7 +97,6 @@ public class RemoteFetchAd {
     public static JSONObject likeAd(Context context, String _id){
         try{
             String urlString = AD_API + "/ads/like/%s";
-            //_id = URLEncoder.encode(_id,"utf-8");
             urlString = String.format(urlString, _id);
             URL url = new URL(urlString); //Ajout de l'id dans l'url
             HttpURLConnection connection = (HttpURLConnection) url.openConnection();
@@ -124,7 +123,6 @@ public class RemoteFetchAd {
     public static JSONObject dislikeAd(Context context, String _id){
         try{
             String urlString = AD_API + "/ads/dislike/%s";
-            //_id = URLEncoder.encode(_id,"utf-8");
             urlString = String.format(urlString, _id);
             URL url = new URL(urlString); //Ajout de l'id dans l'url
             HttpURLConnection connection = (HttpURLConnection) url.openConnection();

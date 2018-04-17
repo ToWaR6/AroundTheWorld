@@ -1,8 +1,7 @@
 package hasselhoff.aroundtheworld;
 
 import android.content.Intent;
-import android.database.Cursor;
-import android.database.sqlite.SQLiteDatabase;
+import android.content.SharedPreferences;
 import android.net.Uri;
 import android.os.Bundle;
 import android.os.Handler;
@@ -20,8 +19,7 @@ import org.json.JSONObject;
 
 import java.util.ArrayList;
 
-import hasselhoff.aroundtheworld.database.DatabaseHandler;
-import hasselhoff.aroundtheworld.database.PersonContract;
+import hasselhoff.aroundtheworld.database.KeyPreferences;
 import hasselhoff.aroundtheworld.remote_fetch.RemoteFetchAd;
 import hasselhoff.aroundtheworld.remote_fetch.DownloadImageTask;
 
@@ -48,24 +46,8 @@ public class AdsActivity extends SubActivity {
         adImage = findViewById(R.id.adImage);
         adTitle = findViewById(R.id.adTitle);
 
-        DatabaseHandler myDatabaseHandler = new DatabaseHandler(AdsActivity.this);
-        SQLiteDatabase db = myDatabaseHandler.getReadableDatabase();
-        String[] projection = {
-                PersonContract.FeedEntry.COLUMN_CITY
-        };
-        Cursor cursor = db.query(
-                PersonContract.FeedEntry.TABLE_NAME,
-                projection,
-                null, //Where clause
-                null, //Where clause
-                null, //Don't group the rows
-                null,                   // don't filter by row groups
-                null               // The sort order
-        );
-        if(cursor.moveToFirst()){
-            currentCity = cursor.getString(cursor.getColumnIndex(PersonContract.FeedEntry.COLUMN_CITY));
-        }
-        cursor.close();
+        SharedPreferences sharedPreferences = getBaseContext().getSharedPreferences(KeyPreferences.PREFS,MODE_PRIVATE);
+        currentCity = sharedPreferences.getString(KeyPreferences.CITY,"");
         getNewAd(currentCity);
     }
 
@@ -94,7 +76,7 @@ public class AdsActivity extends SubActivity {
     public void getOnlyNewAd(final String city){
         new Thread(){
             public void run(){
-                final JSONObject json = RemoteFetchAd.postJSON(AdsActivity.this,city,adId.toArray());
+                final JSONObject json = RemoteFetchAd.postJSON(AdsActivity.this,city,adId);
                 if(json == null) {
                     handler.post(new Runnable() {
                         @Override
@@ -175,6 +157,7 @@ public class AdsActivity extends SubActivity {
         withoutOpinionButton.setEnabled(false);
         adUrl = null;
     }
+
     public void withoutOpinion(View view){
         getOnlyNewAd(currentCity);
     }

@@ -10,7 +10,7 @@
     <string name="title_activity_shop">Shops</string>
     <string name="my_params">My parameters</string>
     <string name="my_city">My city</string>
-    <string name="my_tastes">I like...</string>
+    <string name="my_tastes">I like &#8230;</string>
     <string name="title_activity_city">My City</string>
     <string name="confirm">Confirm</string>
     <string name="cancel">Cancel</string>
@@ -36,4 +36,5 @@
     <string name="without_opinion">Without opinion</string>
     <string name="ad_not_found">No more ad to display</string>
     <string name="feedback">Thanks for your feedback</string>
+    <string name="firstCity">Paris</string>
 </resources>

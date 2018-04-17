@@ -1,6 +1,8 @@
 package hasselhoff.aroundtheworld;
 
 import android.app.Fragment;
+import android.content.Context;
+import android.content.SharedPreferences;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.graphics.drawable.Drawable;
@@ -25,6 +27,7 @@ import java.util.Date;
 import java.util.Locale;
 
 import hasselhoff.aroundtheworld.database.DatabaseHandler;
+import hasselhoff.aroundtheworld.database.KeyPreferences;
 import hasselhoff.aroundtheworld.database.PersonContract;
 import hasselhoff.aroundtheworld.remote_fetch.RemoteFetchWeather;
 
@@ -58,24 +61,8 @@ public class WeatherFragment extends Fragment{
     }
     public void onCreate(Bundle savedInstanceState){
         super.onCreate(savedInstanceState);
-        DatabaseHandler myDatabaseHandler = new DatabaseHandler(getActivity());
-        SQLiteDatabase db = myDatabaseHandler.getReadableDatabase();
-        String[] projection = {
-                PersonContract.FeedEntry.COLUMN_CITY
-        };
-        Cursor cursor = db.query(
-                PersonContract.FeedEntry.TABLE_NAME,
-                projection,
-                null, //Where clause
-                null, //Where clause
-                null, //Don't group the rows
-                null,                   // don't filter by row groups
-                null               // The sort order
-        );
-        if(cursor.moveToFirst()){
-            currentCity = cursor.getString(cursor.getColumnIndex(PersonContract.FeedEntry.COLUMN_CITY));
-        }
-        cursor.close();
+       SharedPreferences sharedPreferences = getActivity().getSharedPreferences(KeyPreferences.PREFS, Context.MODE_PRIVATE);
+        currentCity = sharedPreferences.getString(KeyPreferences.CITY,"");
         updateWeatherData(currentCity);
     }
     public void updateWeatherData(final String city){
