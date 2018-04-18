@@ -38,4 +38,5 @@
     <string name="ad_not_found">Désolé il n\'y a plus de publicité</string>
     <string name="feedback">Merci de vos retours</string>
     <string name="firstCity">Montpellier</string>
+    <string name="title_activity_like">J\'aime...</string>
 </resources>

@@ -51,5 +51,7 @@ public class MainActivity extends SubActivity {
 
     public void openMyParam (MenuItem menuItem){newActivity(MySettingsActivity.class);}
 
+    public void openLike(MenuItem menuItem){newActivity(LikeActivity.class);}
+
 
 }

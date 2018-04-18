@@ -40,6 +40,10 @@
             android:name=".UpdateSettingActivity"
             android:label="@string/title_activity_update_setting"
             />
+        <activity
+            android:name=".LikeActivity"
+            android:label="@string/title_activity_like"
+            />
         <meta-data
             android:name="com.google.android.geo.API_KEY"
             android:value="AIzaSyDoIYt8yv4aC-Gs7OKVPtYL6oPfdBlJphY"/>

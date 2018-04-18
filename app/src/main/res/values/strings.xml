@@ -37,4 +37,5 @@
     <string name="ad_not_found">No more ad to display</string>
     <string name="feedback">Thanks for your feedback</string>
     <string name="firstCity">Paris</string>
+    <string name="title_activity_like">I like...</string>
 </resources>
