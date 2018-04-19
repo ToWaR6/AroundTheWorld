@@ -8,6 +8,7 @@ public class KeyPreferences {
     public static final String GENDER = "PREFS_GENDER_APP";
     public static final String WEIGHT = "PREFS_WEIGHT_APP";
     public static final String SIZE = "PREFS_SIZE_APP";
+    public static final String LIKED_ITEMS = "PREF_LIKED_ITEMS";
     private KeyPreferences(){
 
     }
