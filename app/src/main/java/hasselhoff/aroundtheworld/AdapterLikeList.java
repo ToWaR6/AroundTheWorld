@@ -17,19 +17,15 @@ import android.widget.TextView;
 
 import java.util.ArrayList;
 import java.util.Collections;
-import java.util.Set;
-import java.util.TreeSet;
 
-import hasselhoff.aroundtheworld.database.KeyPreferences;
+import hasselhoff.aroundtheworld.database.Preferences;
 
 public class AdapterLikeList extends RecyclerView.Adapter<AdapterLikeList.MyViewHolder> {
     private ArrayList<String> likedItems;
-    private SharedPreferences sharedPreferences;
-    public AdapterLikeList(Activity activity){
-        this.likedItems = new ArrayList<>();
-        this.sharedPreferences = activity.getBaseContext().getSharedPreferences(KeyPreferences.PREFS, Context.MODE_PRIVATE);
-        Set<String> likedItems = sharedPreferences.getStringSet(KeyPreferences.LIKED_ITEMS, new TreeSet<String>());
-        this.likedItems.addAll(likedItems);
+    private Context context;
+    public AdapterLikeList(Context context,ArrayList<String> likedItems){
+        this.context = context;
+        this.likedItems = likedItems;
         Collections.sort(this.likedItems);
     }
     @Override
@@ -48,10 +44,8 @@ public class AdapterLikeList extends RecyclerView.Adapter<AdapterLikeList.MyView
         return likedItems.size();
     }
     public void remove(int position){
-        String itemRemoved = likedItems.remove(position);
-        Set<String> likedItems = sharedPreferences.getStringSet(KeyPreferences.LIKED_ITEMS, new TreeSet<String>());
-        likedItems.remove(itemRemoved);
-        sharedPreferences.edit().clear().putStringSet(KeyPreferences.LIKED_ITEMS,likedItems).commit();
+        this.likedItems.remove(position);
+        Preferences.setStringArrayPref(context,Preferences.LIKED_ITEMS,this.likedItems);
         notifyItemRemoved(position);
     }
     protected class MyViewHolder extends RecyclerView.ViewHolder{

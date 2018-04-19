@@ -19,7 +19,7 @@ import com.google.android.gms.location.places.Places;
 import com.google.android.gms.location.places.ui.PlaceAutocompleteFragment;
 import com.google.android.gms.location.places.ui.PlaceSelectionListener;
 
-import hasselhoff.aroundtheworld.database.KeyPreferences;
+import hasselhoff.aroundtheworld.database.Preferences;
 
 public class CityActivity extends SubActivity implements OnConnectionFailedListener{
     SharedPreferences sharedPreferences;
@@ -30,8 +30,8 @@ public class CityActivity extends SubActivity implements OnConnectionFailedListe
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_city);
         setSupportActionBar((Toolbar) findViewById(R.id.toolbar));
-        sharedPreferences = getBaseContext().getSharedPreferences(KeyPreferences.PREFS,MODE_PRIVATE);
-        currentCity = sharedPreferences.getString(KeyPreferences.CITY,"");
+        sharedPreferences = getBaseContext().getSharedPreferences(Preferences.PREFS,MODE_PRIVATE);
+        currentCity = sharedPreferences.getString(Preferences.CITY,"");
 
         //TextView
         ((TextView) findViewById(R.id.text_you_are)).append(currentCity);
@@ -72,7 +72,7 @@ public class CityActivity extends SubActivity implements OnConnectionFailedListe
         autocompleteFragment.setText("");
         if(!newCity.equals("")){
             currentCity = newCity;
-            sharedPreferences.edit().putString(KeyPreferences.CITY,currentCity).apply();
+            sharedPreferences.edit().putString(Preferences.CITY,currentCity).apply();
             ((TextView) findViewById(R.id.text_you_are)).setText(R.string.you_are);
             ((TextView) findViewById(R.id.text_you_are)).append(currentCity);
         }

@@ -3,18 +3,14 @@ package hasselhoff.aroundtheworld;
 import android.app.Fragment;
 import android.content.Context;
 import android.content.SharedPreferences;
-import android.database.Cursor;
-import android.database.sqlite.SQLiteDatabase;
 import android.graphics.drawable.Drawable;
 import android.os.Bundle;
 import android.os.Handler;
 import android.support.v4.content.ContextCompat;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
-import android.widget.LinearLayout;
 import android.widget.ScrollView;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -26,9 +22,7 @@ import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.Locale;
 
-import hasselhoff.aroundtheworld.database.DatabaseHandler;
-import hasselhoff.aroundtheworld.database.KeyPreferences;
-import hasselhoff.aroundtheworld.database.PersonContract;
+import hasselhoff.aroundtheworld.database.Preferences;
 import hasselhoff.aroundtheworld.remote_fetch.RemoteFetchWeather;
 
 public class WeatherFragment extends Fragment{
@@ -61,8 +55,8 @@ public class WeatherFragment extends Fragment{
     }
     public void onCreate(Bundle savedInstanceState){
         super.onCreate(savedInstanceState);
-       SharedPreferences sharedPreferences = getActivity().getSharedPreferences(KeyPreferences.PREFS, Context.MODE_PRIVATE);
-        currentCity = sharedPreferences.getString(KeyPreferences.CITY,"");
+       SharedPreferences sharedPreferences = getActivity().getSharedPreferences(Preferences.PREFS, Context.MODE_PRIVATE);
+        currentCity = sharedPreferences.getString(Preferences.CITY,"");
         updateWeatherData(currentCity);
     }
     public void updateWeatherData(final String city){

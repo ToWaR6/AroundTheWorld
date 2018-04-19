@@ -19,7 +19,7 @@ import org.json.JSONObject;
 
 import java.util.ArrayList;
 
-import hasselhoff.aroundtheworld.database.KeyPreferences;
+import hasselhoff.aroundtheworld.database.Preferences;
 import hasselhoff.aroundtheworld.remote_fetch.RemoteFetchAd;
 import hasselhoff.aroundtheworld.remote_fetch.DownloadImageTask;
 
@@ -46,8 +46,8 @@ public class AdsActivity extends SubActivity {
         adImage = findViewById(R.id.adImage);
         adTitle = findViewById(R.id.adTitle);
 
-        SharedPreferences sharedPreferences = getBaseContext().getSharedPreferences(KeyPreferences.PREFS,MODE_PRIVATE);
-        currentCity = sharedPreferences.getString(KeyPreferences.CITY,"");
+        SharedPreferences sharedPreferences = getBaseContext().getSharedPreferences(Preferences.PREFS,MODE_PRIVATE);
+        currentCity = sharedPreferences.getString(Preferences.CITY,"");
         getNewAd(currentCity);
     }
 

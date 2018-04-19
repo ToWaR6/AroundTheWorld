@@ -7,7 +7,7 @@ import android.support.v7.widget.Toolbar;
 import android.view.View;
 import android.widget.TextView;
 
-import hasselhoff.aroundtheworld.database.KeyPreferences;
+import hasselhoff.aroundtheworld.database.Preferences;
 
 
 public class MySettingsActivity extends SubActivity {
@@ -31,28 +31,28 @@ public class MySettingsActivity extends SubActivity {
         loadActivity();
     }
     private void loadActivity(){
-        SharedPreferences sharedPreferences = getSharedPreferences(KeyPreferences.PREFS,MODE_PRIVATE);
-        String name = sharedPreferences.getString(KeyPreferences.NAME,"");
+        SharedPreferences sharedPreferences = getSharedPreferences(Preferences.PREFS,MODE_PRIVATE);
+        String name = sharedPreferences.getString(Preferences.NAME,"");
        ((TextView) findViewById(R.id.name)).setText(name);
         updateActivity.putExtra(NAME,name);
 
-        String firstName =  sharedPreferences.getString(KeyPreferences.FIRSTNAME,"");
+        String firstName =  sharedPreferences.getString(Preferences.FIRSTNAME,"");
         ((TextView) findViewById(R.id.firstname)).setText(firstName);
         updateActivity.putExtra(FIRSTNAME,firstName);
 
-        String birthday =  sharedPreferences.getString(KeyPreferences.BIRTHDAY,"");
+        String birthday =  sharedPreferences.getString(Preferences.BIRTHDAY,"");
         ((TextView) findViewById(R.id.birthday)).setText(birthday);
         updateActivity.putExtra(BIRTHDAY,birthday);
 
-        String gender = sharedPreferences.getString(KeyPreferences.GENDER,"");
+        String gender = sharedPreferences.getString(Preferences.GENDER,"");
        ((TextView) findViewById(R.id.gender)).setText(gender);
         updateActivity.putExtra(GENDER,gender);
 
-        String weight =  sharedPreferences.getString(KeyPreferences.WEIGHT,"");
+        String weight =  sharedPreferences.getString(Preferences.WEIGHT,"");
         ((TextView) findViewById(R.id.weight)).setText(weight);
         updateActivity.putExtra(WEIGHT,weight);
 
-        String size = sharedPreferences.getString(KeyPreferences.SIZE,"");
+        String size = sharedPreferences.getString(Preferences.SIZE,"");
        ((TextView) findViewById(R.id.size)).setText(size);
         updateActivity.putExtra(SIZE,size);
     }

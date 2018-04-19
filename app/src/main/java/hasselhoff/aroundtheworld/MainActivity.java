@@ -8,7 +8,7 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 
-import hasselhoff.aroundtheworld.database.KeyPreferences;
+import hasselhoff.aroundtheworld.database.Preferences;
 
 public class MainActivity extends SubActivity {
 
@@ -23,10 +23,10 @@ public class MainActivity extends SubActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         setSupportActionBar((Toolbar) findViewById(R.id.toolbar));
-        SharedPreferences sharedPreferences = getBaseContext().getSharedPreferences(KeyPreferences.PREFS,MODE_PRIVATE);
-        String currentCity = sharedPreferences.getString(KeyPreferences.CITY,"");
+        SharedPreferences sharedPreferences = getBaseContext().getSharedPreferences(Preferences.PREFS,MODE_PRIVATE);
+        String currentCity = sharedPreferences.getString(Preferences.CITY,"");
         if(currentCity.equals(""))
-            sharedPreferences.edit().putString(KeyPreferences.CITY,getString(R.string.firstCity)).apply();
+            sharedPreferences.edit().putString(Preferences.CITY,getString(R.string.firstCity)).apply();
     }
 
     public void openNewsAct(View view) {

@@ -11,7 +11,7 @@ import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.Locale;
 
-import hasselhoff.aroundtheworld.database.KeyPreferences;
+import hasselhoff.aroundtheworld.database.Preferences;
 
 
 public class UpdateSettingActivity extends SubActivity {
@@ -36,7 +36,7 @@ public class UpdateSettingActivity extends SubActivity {
         ((EditText) findViewById(R.id.editSize)).setText(size);
     }
     public void updateSetting(View view){
-        SharedPreferences sharedPreferences = getSharedPreferences(KeyPreferences.PREFS,MODE_PRIVATE);
+        SharedPreferences sharedPreferences = getSharedPreferences(Preferences.PREFS,MODE_PRIVATE);
         String firstName = ((EditText) findViewById(R.id.editFirstname)).getText().toString().trim();
         String name = ((EditText) findViewById(R.id.editName)).getText().toString().trim();
         String birthday = ((EditText) findViewById(R.id.editBirthday)).getText().toString().trim();
@@ -51,12 +51,12 @@ public class UpdateSettingActivity extends SubActivity {
             birthday = this.birthday;
         }
 
-        sharedPreferences.edit().putString(KeyPreferences.NAME,name)
-                .putString(KeyPreferences.FIRSTNAME,firstName)
-                .putString(KeyPreferences.BIRTHDAY,birthday)
-                .putString(KeyPreferences.GENDER,gender)
-                .putString(KeyPreferences.WEIGHT,weight)
-                .putString(KeyPreferences.SIZE,size)
+        sharedPreferences.edit().putString(Preferences.NAME,name)
+                .putString(Preferences.FIRSTNAME,firstName)
+                .putString(Preferences.BIRTHDAY,birthday)
+                .putString(Preferences.GENDER,gender)
+                .putString(Preferences.WEIGHT,weight)
+                .putString(Preferences.SIZE,size)
                 .apply();
         UpdateSettingActivity.this.finish();
     }
