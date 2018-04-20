@@ -26,7 +26,7 @@ public class AdapterLikeList extends RecyclerView.Adapter<AdapterLikeList.MyView
     public AdapterLikeList(Context context,ArrayList<String> likedItems){
         this.context = context;
         this.likedItems = likedItems;
-        Collections.sort(this.likedItems);
+        Collections.sort(this.likedItems, String.CASE_INSENSITIVE_ORDER);
     }
     @Override
     public MyViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
@@ -41,11 +41,19 @@ public class AdapterLikeList extends RecyclerView.Adapter<AdapterLikeList.MyView
 
     @Override
     public int getItemCount() {
-        return likedItems.size();
+        return this.likedItems.size();
+    }
+    public void add(String newItem){
+        this.likedItems.add(newItem);
+        Collections.sort(this.likedItems, String.CASE_INSENSITIVE_ORDER);
+        int position = this.likedItems.indexOf(newItem);
+        Preferences.setStringArrayPref(this.context,Preferences.LIKED_ITEMS,this.likedItems);
+        notifyItemInserted(position);
+
     }
     public void remove(int position){
         this.likedItems.remove(position);
-        Preferences.setStringArrayPref(context,Preferences.LIKED_ITEMS,this.likedItems);
+        Preferences.setStringArrayPref(this.context,Preferences.LIKED_ITEMS,this.likedItems);
         notifyItemRemoved(position);
     }
     protected class MyViewHolder extends RecyclerView.ViewHolder{

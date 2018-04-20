@@ -59,7 +59,7 @@ public class AdsActivity extends SubActivity {
                     handler.post(new Runnable() {
                         @Override
                         public void run() {
-                            Toast.makeText(AdsActivity.this, AdsActivity.this.getString(R.string.ad_not_found), Toast.LENGTH_LONG).show();
+                            Toast.makeText(AdsActivity.this, AdsActivity.this.getString(R.string.ad_not_found), Toast.LENGTH_SHORT).show();
                             renderOriginAd();
                         }
                     });
@@ -81,7 +81,7 @@ public class AdsActivity extends SubActivity {
                     handler.post(new Runnable() {
                         @Override
                         public void run() {
-                            Toast.makeText(AdsActivity.this, AdsActivity.this.getString(R.string.ad_not_found), Toast.LENGTH_LONG).show();
+                            Toast.makeText(AdsActivity.this, AdsActivity.this.getString(R.string.ad_not_found), Toast.LENGTH_SHORT).show();
                             renderOriginAd();
                         }
                     });
@@ -104,13 +104,13 @@ public class AdsActivity extends SubActivity {
                     handler.post(new Runnable() {
                         @Override
                         public void run() {
-                            Toast.makeText(AdsActivity.this, AdsActivity.this.getString(R.string.ad_not_found), Toast.LENGTH_LONG).show();
+                            Toast.makeText(AdsActivity.this, AdsActivity.this.getString(R.string.ad_not_found), Toast.LENGTH_SHORT).show();
                         }
                     });
                 }else{
                     handler.post(new Runnable(){
                         public void run(){
-                            Toast.makeText(AdsActivity.this, AdsActivity.this.getString(R.string.feedback), Toast.LENGTH_LONG).show();
+                            Toast.makeText(AdsActivity.this, AdsActivity.this.getString(R.string.feedback), Toast.LENGTH_SHORT).show();
                         }
                     });
                 }
@@ -125,14 +125,14 @@ public class AdsActivity extends SubActivity {
                     handler.post(new Runnable() {
                         @Override
                         public void run() {
-                            Toast.makeText(AdsActivity.this, AdsActivity.this.getString(R.string.ad_not_found), Toast.LENGTH_LONG).show();
+                            Toast.makeText(AdsActivity.this, AdsActivity.this.getString(R.string.ad_not_found), Toast.LENGTH_SHORT).show();
                             renderOriginAd();
                         }
                     });
                 }else{
                     handler.post(new Runnable(){
                         public void run(){
-                            Toast.makeText(AdsActivity.this, AdsActivity.this.getString(R.string.feedback), Toast.LENGTH_LONG).show();
+                            Toast.makeText(AdsActivity.this, AdsActivity.this.getString(R.string.feedback), Toast.LENGTH_SHORT).show();
                         }
                     });
                 }
