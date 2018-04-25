@@ -11,7 +11,7 @@
     <string name="title_activity_news">Actualités</string>
     <string name="my_params">Mes paramètres</string>
     <string name="my_city">Ma ville</string>
-    <string name="my_tastes">J\'aime...</string>
+    <string name="my_tastes">J\'aime&#8230;</string>
     <string name="title_activity_city">Ma ville</string>
     <string name="confirm">Valider</string>
     <string name="cancel">Annuler</string>
@@ -30,9 +30,13 @@
     <string name="dateFormat">dd/MM/yyyy</string>
     <string name="weather">Météo</string>
     <string name="title_activity_weather">Météo</string>
-    <string name="weather_not_found">La météo n'a pas été trouvé</string>
+    <string name="weather_not_found">La météo n\'a pas été trouvé</string>
     <string name="humidity">"Humidité : "</string>
     <string name="not_interesting">Pas intéressé</string>
     <string name="interesting">Intéressé</string>
     <string name="without_opinion">Sans avis</string>
+    <string name="ad_not_found">Désolé il n\'y a plus de publicité</string>
+    <string name="feedback">Merci de vos retours</string>
+    <string name="firstCity">Montpellier</string>
+    <string name="title_activity_like">J\'aime...</string>
 </resources>

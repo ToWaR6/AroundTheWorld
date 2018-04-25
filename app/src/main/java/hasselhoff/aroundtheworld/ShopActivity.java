@@ -3,8 +3,12 @@ package hasselhoff.aroundtheworld;
 import android.os.Bundle;
 import android.support.v7.widget.Toolbar;
 
-public class ShopActivity extends SubActivity {
+import com.google.android.gms.maps.GoogleMap;
+import com.google.android.gms.maps.OnMapReadyCallback;
+import com.google.android.gms.maps.model.MarkerOptions;
 
+public class ShopActivity extends SubActivity implements OnMapReadyCallback {
+    GoogleMap googleMap;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -12,4 +16,8 @@ public class ShopActivity extends SubActivity {
         setSupportActionBar((Toolbar) findViewById(R.id.toolbar));
     }
 
+    @Override
+    public void onMapReady(GoogleMap googleMap) {
+        this.googleMap = googleMap;
+    }
 }
