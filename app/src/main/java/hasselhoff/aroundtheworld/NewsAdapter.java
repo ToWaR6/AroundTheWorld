@@ -1,8 +1,10 @@
 package hasselhoff.aroundtheworld;
 
 import android.content.Context;
+import android.content.Intent;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
+import android.net.Uri;
 import android.os.AsyncTask;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
@@ -33,7 +35,7 @@ public class NewsAdapter extends ArrayAdapter<News> {
 
     @NonNull
     @Override
-    public View getView(int position, @Nullable View convertView, @NonNull ViewGroup parent) {
+    public View getView(final int position, @Nullable View convertView, @NonNull ViewGroup parent) {
         // si la vue doit etre cree, sinon la vue se fait recyclee
         if (convertView == null) {
             convertView = LayoutInflater.from(getContext()).inflate(R.layout.row_news, parent, false);
@@ -65,7 +67,17 @@ public class NewsAdapter extends ArrayAdapter<News> {
             if (img != null) {
                 newsViewHolder.image.setImageBitmap(img);
             }
+
         }
+
+        convertView.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                getContext().startActivity(new Intent(Intent.ACTION_VIEW, Uri.parse(getItem(position).getUrl())));
+            }
+        });
+
+
         return convertView;
     }
 

@@ -5,7 +5,6 @@ import android.support.v7.widget.Toolbar;
 
 import com.google.android.gms.maps.GoogleMap;
 import com.google.android.gms.maps.OnMapReadyCallback;
-import com.google.android.gms.maps.model.MarkerOptions;
 
 public class ShopActivity extends SubActivity implements OnMapReadyCallback {
     GoogleMap googleMap;

@@ -3,6 +3,7 @@ package hasselhoff.aroundtheworld.remote_fetch;
 import android.content.Context;
 import android.os.AsyncTask;
 
+import org.json.JSONException;
 import org.json.JSONObject;
 
 import java.io.BufferedReader;
@@ -49,10 +50,11 @@ public class RemoteFetchNews extends AsyncTask<String, Void, JSONObject> {
             e.printStackTrace();
         } catch (IOException e) {
             e.printStackTrace();
-        } catch (Exception e) {
+        } catch (JSONException e) {
+            e.printStackTrace();
+        } catch (SecurityException e) {
             e.printStackTrace();
         }
-
         return null;
     }
 }
