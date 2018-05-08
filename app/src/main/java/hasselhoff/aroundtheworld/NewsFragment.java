@@ -1,6 +1,8 @@
 package hasselhoff.aroundtheworld;
 
 import android.app.Fragment;
+import android.content.Context;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.view.LayoutInflater;
@@ -17,6 +19,7 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.concurrent.ExecutionException;
 
+import hasselhoff.aroundtheworld.database.Preferences;
 import hasselhoff.aroundtheworld.remote_fetch.RemoteFetchNews;
 
 
@@ -24,22 +27,30 @@ public class NewsFragment extends Fragment {
 
     ListView viewListNews;
     List<News> listNews;
-
+    private static  JSONObject json = null;
     @Override
     public void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+
     }
 
     @Nullable
     @Override
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, Bundle savedInstanceState) {
         View rootView = inflater.inflate(R.layout.fragment_news, container, false);
-
-        //this.listNews = generateNews(10);
-
-
-        try {
-            JSONObject json = new RemoteFetchNews(getActivity()).execute("montpellier").get();
+        if(json == null){
+            //this.listNews = generateNews(10);
+            SharedPreferences sharedPreferences = getActivity().getSharedPreferences(Preferences.PREFS, Context.MODE_PRIVATE);
+            String currentCity = sharedPreferences.getString(Preferences.CITY,"");
+            try {
+                json = new RemoteFetchNews(getActivity()).execute(currentCity).get();
+            }catch (InterruptedException e) {
+                e.printStackTrace();
+            } catch (ExecutionException e) {
+                e.printStackTrace();
+            }
+        }
+        try{
             if (json == null) {
                 this.listNews = generateNews(10);
                 Toast.makeText(getActivity(), "Erreur lors du chargement de l'api de news", Toast.LENGTH_SHORT).show();
@@ -48,15 +59,10 @@ public class NewsFragment extends Fragment {
             }
         } catch (JSONException e) {
             e.printStackTrace();
-        } catch (InterruptedException e) {
-            e.printStackTrace();
-        } catch (ExecutionException e) {
-            e.printStackTrace();
         }
         NewsAdapter adapter = new NewsAdapter(getActivity(), this.listNews);
-        this.viewListNews = (ListView) rootView.findViewById(R.id.listNews);
+        this.viewListNews = rootView.findViewById(R.id.listNews);
         this.viewListNews.setAdapter(adapter);
-
         return rootView;
     }
 
