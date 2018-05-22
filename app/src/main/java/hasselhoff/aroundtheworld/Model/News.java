@@ -1,4 +1,4 @@
-package hasselhoff.aroundtheworld;
+package hasselhoff.aroundtheworld.Model;
 
 /**
  * Created by Loic on 11/04/2018.

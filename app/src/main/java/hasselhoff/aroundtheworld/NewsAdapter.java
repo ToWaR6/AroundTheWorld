@@ -14,6 +14,7 @@ import android.widget.TextView;
 
 import java.util.List;
 
+import hasselhoff.aroundtheworld.Model.News;
 import hasselhoff.aroundtheworld.remote_fetch.DownloadImageTask;
 
 /**

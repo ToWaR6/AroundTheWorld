@@ -19,6 +19,7 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.concurrent.ExecutionException;
 
+import hasselhoff.aroundtheworld.Model.News;
 import hasselhoff.aroundtheworld.database.Preferences;
 import hasselhoff.aroundtheworld.remote_fetch.RemoteFetchNews;
 
