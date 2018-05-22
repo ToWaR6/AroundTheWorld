@@ -12,7 +12,7 @@ import android.widget.TextView;
 
 import java.util.ArrayList;
 
-import hasselhoff.aroundtheworld.Activities.ChatActivity;
+import hasselhoff.aroundtheworld.Activity.ChatActivity;
 import hasselhoff.aroundtheworld.Model.Network;
 import hasselhoff.aroundtheworld.R;
 import hasselhoff.aroundtheworld.database.Preferences;

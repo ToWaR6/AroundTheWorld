@@ -45,4 +45,6 @@
     <string name="private_sub">Privé ?</string>
     <string name="networks_not_found">Aucun réseaux trouvé</string>
     <string name="title_activity_chat">Discussion</string>
+    <string name="error_apiNews">Erreur chargement api de news</string>
+    <string name="longClickNeeded">Appuyer longuement pour supprimer l\'élément</string>
 </resources>

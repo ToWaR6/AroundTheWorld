@@ -55,7 +55,7 @@ public class NewsFragment extends Fragment {
         }
         try{
             if (json == null) {
-                Toast.makeText(getActivity(), "Erreur lors du chargement de l'api de news", Toast.LENGTH_SHORT).show();
+                Toast.makeText(getActivity(), R.string.error_apiNews, Toast.LENGTH_SHORT).show();
             } else {
                 this.listNews = getNewsFromJson(json);
             }

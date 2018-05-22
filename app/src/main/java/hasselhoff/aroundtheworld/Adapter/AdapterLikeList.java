@@ -8,6 +8,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import java.util.ArrayList;
 import java.util.Collections;
@@ -59,6 +60,12 @@ public class AdapterLikeList extends RecyclerView.Adapter<AdapterLikeList.MyView
 
             itemTextView = itemView.findViewById(R.id.item);
             dustbin = itemView.findViewById(R.id.dustbin);
+            dustbin.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    Toast.makeText(v.getContext(), R.string.longClickNeeded, Toast.LENGTH_SHORT).show();
+                }
+            });
             dustbin.setOnLongClickListener(new View.OnLongClickListener() {
                 @Override
                 public boolean onLongClick(View view) {

@@ -1,4 +1,4 @@
-package hasselhoff.aroundtheworld.Activities;
+package hasselhoff.aroundtheworld.Activity;
 
 import android.content.Intent;
 import android.content.SharedPreferences;
@@ -33,6 +33,7 @@ public class AdsActivity extends SubActivity {
     private Button dislikeButton;
     private Button withoutOpinionButton;
     private ArrayList<String> adId;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
