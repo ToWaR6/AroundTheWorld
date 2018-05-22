@@ -86,7 +86,7 @@ public class AdapterNetwork extends RecyclerView.Adapter<AdapterNetwork.MyViewHo
                 public void onClick(View view) {
                     if(checked){
                         Intent intent = new Intent(context,ChatActivity.class);
-                        intent.putExtra("ID_SERVER",network.getIdNetwork());
+                        intent.putExtra("ID_NETWORK",network.getIdNetwork());
                         intent.addFlags(Intent.FLAG_ACTIVITY_NO_ANIMATION);
                         context.startActivity(intent);
                     }
