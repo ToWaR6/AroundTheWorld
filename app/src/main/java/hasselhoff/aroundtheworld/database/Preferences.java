@@ -14,6 +14,8 @@ public class Preferences {
     public static final String NAME = "PREFS_NAME_APP";
     public static final String FIRSTNAME = "PREFS_FIRSTNAME_APP";
     public static final String CITY = "PREFS_CITY_APP";
+    public static final String CITYLAT = "PREFS_CITYLAT_APP";
+    public static final String CITYLNG = "PREFS_CITYLNG_APP";
     public static final String BIRTHDAY= "PREFS_BIRTHDAY_APP";
     public static final String GENDER = "PREFS_GENDER_APP";
     public static final String WEIGHT = "PREFS_WEIGHT_APP";
