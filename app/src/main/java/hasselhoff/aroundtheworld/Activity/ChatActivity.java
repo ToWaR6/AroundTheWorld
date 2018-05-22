@@ -1,5 +1,6 @@
 package hasselhoff.aroundtheworld.Activity;
 
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.os.Handler;
 import android.support.v4.content.ContextCompat;
@@ -10,6 +11,7 @@ import android.support.v7.widget.Toolbar;
 import android.util.Log;
 import android.view.Menu;
 import android.view.View;
+import android.widget.EditText;
 import android.widget.Toast;
 
 import org.json.JSONArray;
@@ -23,10 +25,12 @@ import hasselhoff.aroundtheworld.Adapter.AdapterNetwork;
 import hasselhoff.aroundtheworld.Model.Message;
 import hasselhoff.aroundtheworld.Model.Network;
 import hasselhoff.aroundtheworld.R;
+import hasselhoff.aroundtheworld.database.Preferences;
 import hasselhoff.aroundtheworld.remote_fetch.RemoteFetchNetwork;
 
 public class ChatActivity extends SubActivity {
     private int idNetwork;
+    private EditText editText;
     private Handler handler;
     private RecyclerView recyclerView;
     @Override
@@ -41,6 +45,7 @@ public class ChatActivity extends SubActivity {
         setContentView(R.layout.chat_activity);
         setSupportActionBar((Toolbar) findViewById(R.id.toolbar));
         recyclerView= findViewById(R.id.list);
+        editText = findViewById(R.id.messageToSend);
         handler = new Handler();
         idNetwork = getIntent().getIntExtra("ID_NETWORK",-1);
         if(idNetwork!=1){
@@ -85,8 +90,34 @@ public class ChatActivity extends SubActivity {
     }
 
     public void sendMessage(View v){
-        Toast.makeText(v.getContext(), R.string.longClickNeeded, Toast.LENGTH_SHORT).show();
+        SharedPreferences sharedPreferences = getSharedPreferences(Preferences.PREFS,MODE_PRIVATE);
+        int id = sharedPreferences.getInt(Preferences.ID,-1);
+        String content = editText.getText().toString();
+        editText.setText("");
+        if(!content.isEmpty() && id != -1){
+            final JSONObject postData= new JSONObject();
+            try {
+                postData.put("id_network",idNetwork);
+                postData.put("id_user",id);
+                postData.put("content",content);
+            } catch (JSONException e) {
+                e.printStackTrace();
+            }
 
+            new Thread(){
+                public void run(){
+                    RemoteFetchNetwork.postMessage(postData);
+                    final JSONObject json = RemoteFetchNetwork.getMessages(postData);
+                    if(json!=null){
+                        handler.post(new Runnable(){
+                            public void run(){
+                                renderMessages(json);
+                            }
+                        });
+                    }
+                }
+            }.start();
+        }
     }
 
     private ArrayList<Message> getNetworkFromJson(JSONObject json) throws JSONException {

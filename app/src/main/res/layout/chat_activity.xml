@@ -22,6 +22,7 @@
         android:layout_gravity="bottom">
 
         <EditText
+            android:id="@+id/messageToSend"
             android:layout_width="fill_parent"
             android:layout_height="wrap_content"
             android:hint="Message.." />
