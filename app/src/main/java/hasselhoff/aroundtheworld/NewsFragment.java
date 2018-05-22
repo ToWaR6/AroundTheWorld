@@ -52,7 +52,6 @@ public class NewsFragment extends Fragment {
         }
         try{
             if (json == null) {
-                this.listNews = generateNews(10);
                 Toast.makeText(getActivity(), "Erreur lors du chargement de l'api de news", Toast.LENGTH_SHORT).show();
             } else {
                 this.listNews = getNewsFromJson(json);
@@ -64,21 +63,6 @@ public class NewsFragment extends Fragment {
         this.viewListNews = rootView.findViewById(R.id.listNews);
         this.viewListNews.setAdapter(adapter);
         return rootView;
-    }
-
-    private void printNews() {
-        List<News> list = generateNews(5);
-
-        NewsAdapter adapter = new NewsAdapter(getActivity(), list);
-        viewListNews.setAdapter(adapter);
-    }
-
-    private List<News> generateNews(int nbNews) {
-        List<News> list = new ArrayList<News>();
-        for (int i = 1; i <= nbNews; i++) {
-            list.add(new News("Titre "+i, "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus molestie lorem porta, vestibulum libero vitae, egestas mauris." , "http://www.img2.encyclopedie-incomplete.com/local/cache-vignettes/L400xH278/lorem-ipsum-noir-et-blanc-graph-99479.jpg", "https://fr.lipsum.com"));
-        }
-        return list;
     }
 
     private List<News> getNewsFromJson(JSONObject json) throws JSONException {

@@ -17,7 +17,9 @@
         android:layout_height="25dp"
         android:layout_alignParentTop="true"
         android:layout_toEndOf="@+id/rowNewsImage"
-        android:layout_toRightOf="@+id/rowNewsImage" />
+        android:layout_toRightOf="@+id/rowNewsImage"
+        android:ellipsize="end"
+        android:maxLines="1"/>
 
     <TextView
         android:id="@+id/rowNewsDescription"
@@ -27,5 +29,7 @@
         android:layout_alignParentRight="true"
         android:layout_below="@+id/rowNewsTitle"
         android:layout_toEndOf="@+id/rowNewsImage"
-        android:layout_toRightOf="@+id/rowNewsImage" />
+        android:layout_toRightOf="@+id/rowNewsImage"
+        android:ellipsize="end"
+        android:maxLines="4"/>
 </RelativeLayout>
