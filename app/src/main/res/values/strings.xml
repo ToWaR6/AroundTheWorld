@@ -40,4 +40,7 @@
     <string name="title_activity_like">I like...</string>
     <string name="create_group">Create group</string>
     <string name="user_created">User created</string>
+    <string name="network">Network :</string>
+    <string name="private_sub">Private ?</string>
+    <string name="networks_not_found">Networks not found</string>
 </resources>

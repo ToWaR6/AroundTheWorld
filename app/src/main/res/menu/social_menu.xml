@@ -14,6 +14,7 @@ xmlns:app="http://schemas.android.com/apk/res-auto">
         <item
            android:id = "@+id/menu_param4"
            android:title="@string/create_group"
+            android:onClick="createSub"
             />
     </menu>
 </item>

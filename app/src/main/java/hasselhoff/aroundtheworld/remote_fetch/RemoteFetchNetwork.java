@@ -81,4 +81,66 @@ public class RemoteFetchNetwork {
         }
         return null;
     }
+
+    public static JSONObject createNetwork(JSONObject postData){
+        try{
+            URL url = new URL(String.format(AROUND_THE_NETWORK_API, "create_network.php")); //Ajout de la ville dans l'url
+            HttpURLConnection connection = (HttpURLConnection) url.openConnection();
+            connection.setDoOutput(true);
+            connection.setRequestMethod("POST");
+            connection.setRequestProperty("Content-Type", "application/json");
+            connection.setRequestProperty("Accept","application/json");
+            DataOutputStream wr = new DataOutputStream(connection.getOutputStream());
+            wr.writeBytes("" + postData.toString());
+            wr.flush();
+            wr.close();
+            BufferedReader reader = new BufferedReader(new InputStreamReader(connection.getInputStream()));
+            StringBuffer json = new StringBuffer(1024);
+            String tmp;
+            while ((tmp = reader.readLine()) != null)
+                json.append(tmp).append("\n");
+
+            reader.close();
+            JSONObject data = new JSONObject(json.toString());
+            if(data.getInt("success") == 0)// != Réussite
+                return null;
+            return data;
+        } catch (MalformedURLException e) {
+            e.printStackTrace();
+        } catch (IOException e) {
+            e.printStackTrace();
+        } catch (JSONException e) {
+            e.printStackTrace();
+        }
+        return null;
+    }
+
+    public static JSONObject getNetwork(){
+        try{
+            URL url = new URL(String.format(AROUND_THE_NETWORK_API, "get_networks.php")); //Ajout de la ville dans l'url
+            HttpURLConnection connection = (HttpURLConnection) url.openConnection();
+            connection.setDoOutput(true);
+            connection.setRequestMethod("GET");
+            connection.setRequestProperty("Content-Type", "application/json");
+            connection.setRequestProperty("Accept","application/json");
+            BufferedReader reader = new BufferedReader(new InputStreamReader(connection.getInputStream()));
+            StringBuffer json = new StringBuffer(1024);
+            String tmp;
+            while ((tmp = reader.readLine()) != null)
+                json.append(tmp).append("\n");
+
+            reader.close();
+            JSONObject data = new JSONObject(json.toString());
+            if(data.getInt("success") == 0)// != Réussite
+                return null;
+            return data;
+        } catch (MalformedURLException e) {
+            e.printStackTrace();
+        } catch (IOException e) {
+            e.printStackTrace();
+        } catch (JSONException e) {
+            e.printStackTrace();
+        }
+        return null;
+    }
 }
