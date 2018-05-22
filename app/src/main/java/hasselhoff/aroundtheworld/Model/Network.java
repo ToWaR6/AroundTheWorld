@@ -47,6 +47,10 @@ public class Network {
     }
 
     public String toString(){
-        return name + " de " + city;
+        String res =  name;
+        if(!city.equals("null"))
+            res+= " de " + city;
+        return res;
+
     }
 }
