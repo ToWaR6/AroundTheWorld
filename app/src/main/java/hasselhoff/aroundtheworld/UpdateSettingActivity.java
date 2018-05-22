@@ -2,22 +2,30 @@ package hasselhoff.aroundtheworld;
 
 import android.content.SharedPreferences;
 import android.os.Bundle;
+import android.os.Handler;
 import android.support.v7.widget.Toolbar;
+import android.util.Log;
 import android.view.View;
 import android.widget.EditText;
 import android.widget.Toast;
+
+import org.json.JSONException;
+import org.json.JSONObject;
 
 import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.Locale;
 
 import hasselhoff.aroundtheworld.database.Preferences;
+import hasselhoff.aroundtheworld.remote_fetch.RemoteFetchNetwork;
 
 
 public class UpdateSettingActivity extends SubActivity {
     private String birthday ;
+    private Handler handler;
 
     protected void onCreate(Bundle savedInstanceState) {
+        handler = new Handler();
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_update_settings);
         setSupportActionBar((Toolbar) findViewById(R.id.toolbar));
@@ -36,7 +44,7 @@ public class UpdateSettingActivity extends SubActivity {
         ((EditText) findViewById(R.id.editSize)).setText(size);
     }
     public void updateSetting(View view){
-        SharedPreferences sharedPreferences = getSharedPreferences(Preferences.PREFS,MODE_PRIVATE);
+        final SharedPreferences sharedPreferences = getSharedPreferences(Preferences.PREFS,MODE_PRIVATE);
         String firstName = ((EditText) findViewById(R.id.editFirstname)).getText().toString().trim();
         String name = ((EditText) findViewById(R.id.editName)).getText().toString().trim();
         String birthday = ((EditText) findViewById(R.id.editBirthday)).getText().toString().trim();
@@ -49,6 +57,51 @@ public class UpdateSettingActivity extends SubActivity {
         if(birthday.equals("")){
             Toast.makeText(this.getBaseContext(),birthdayText+dateFormat,Toast.LENGTH_SHORT).show();
             birthday = this.birthday;
+        }
+
+        int id = sharedPreferences.getInt(Preferences.ID,-1);
+        final JSONObject  postData = new JSONObject();
+        try {
+            postData.put("name",name);
+            postData.put("first_name",firstName);
+            postData.put("birthday",birthday);
+            postData.put("weight",weight);
+            postData.put("size",size);
+            postData.put("gender",gender);
+        } catch (JSONException e) {
+            e.printStackTrace();
+        }
+        Log.i("data",postData.toString());
+        if(id == -1){
+            new Thread(){
+                public void run(){
+                    final JSONObject json =  RemoteFetchNetwork.createUser(postData);
+                    if(json != null) {
+                        handler.post(new Runnable(){
+                            public void run(){
+                            try {
+                                int id = json.getInt("id");
+                                sharedPreferences.edit().putInt(Preferences.ID, id).apply();
+                                Log.i("Connect","connect");
+                            } catch(JSONException e){
+                                    e.printStackTrace();
+                            }
+                            }
+                        });
+                    }
+                }
+            }.start();
+        }else{
+            try {
+                postData.put("id_user",id);
+            } catch (JSONException e) {
+                e.printStackTrace();
+            }
+            new Thread(){
+                public void run(){
+                   RemoteFetchNetwork.updateUser(postData);
+                }
+            }.start();
         }
 
         sharedPreferences.edit().putString(Preferences.NAME,name)

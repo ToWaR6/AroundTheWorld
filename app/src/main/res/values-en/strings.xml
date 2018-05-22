@@ -39,4 +39,6 @@
     <string name="feedback">Thanks for your feedback</string>
     <string name="firstCity">Paris</string>
     <string name="title_activity_like">I like...</string>
+    <string name="create_group">Create network</string>
+    <string name="user_created">User created</string>
 </resources>

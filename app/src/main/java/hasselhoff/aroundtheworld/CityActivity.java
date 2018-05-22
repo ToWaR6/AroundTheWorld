@@ -19,7 +19,11 @@ import com.google.android.gms.location.places.Places;
 import com.google.android.gms.location.places.ui.PlaceAutocompleteFragment;
 import com.google.android.gms.location.places.ui.PlaceSelectionListener;
 
+import org.json.JSONException;
+import org.json.JSONObject;
+
 import hasselhoff.aroundtheworld.database.Preferences;
+import hasselhoff.aroundtheworld.remote_fetch.RemoteFetchNetwork;
 
 public class CityActivity extends SubActivity implements OnConnectionFailedListener{
     SharedPreferences sharedPreferences;
@@ -75,6 +79,23 @@ public class CityActivity extends SubActivity implements OnConnectionFailedListe
             sharedPreferences.edit().putString(Preferences.CITY,currentCity).apply();
             ((TextView) findViewById(R.id.text_you_are)).setText(R.string.you_are);
             ((TextView) findViewById(R.id.text_you_are)).append(currentCity);
+            int id = sharedPreferences.getInt(Preferences.ID,-1);
+            if(id!=-1){
+                String nom = sharedPreferences.getString(Preferences.NAME,"");
+                try {
+                    final JSONObject postData = new JSONObject()
+                            .put("id_user",id)
+                            .put("name",nom)
+                            .put("city",currentCity);
+                    new Thread(){
+                        public void run(){
+                            RemoteFetchNetwork.updateUser(postData);
+                        }
+                    }.start();
+                } catch (JSONException e) {
+                    e.printStackTrace();
+                }
+            }
         }
     }
     public void onDestroy(){

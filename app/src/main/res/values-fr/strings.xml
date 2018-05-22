@@ -39,4 +39,6 @@
     <string name="feedback">Merci de vos retours</string>
     <string name="firstCity">Montpellier</string>
     <string name="title_activity_like">J\'aime...</string>
+    <string name="create_group">Créer un réseau</string>
+    <string name="user_created">Vous avez rejoins le réseau</string>
 </resources>

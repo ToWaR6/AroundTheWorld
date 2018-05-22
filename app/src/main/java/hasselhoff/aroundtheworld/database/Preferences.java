@@ -10,6 +10,7 @@ import java.util.ArrayList;
 
 public class Preferences {
     public static final String PREFS = "PREFS_APP";
+    public static final String ID = "PREFS_ID";
     public static final String NAME = "PREFS_NAME_APP";
     public static final String FIRSTNAME = "PREFS_FIRSTNAME_APP";
     public static final String CITY = "PREFS_CITY_APP";
