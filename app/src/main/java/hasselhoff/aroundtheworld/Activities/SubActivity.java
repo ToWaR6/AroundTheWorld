@@ -1,4 +1,4 @@
-package hasselhoff.aroundtheworld;
+package hasselhoff.aroundtheworld.Activities;
 
 import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;

@@ -1,4 +1,4 @@
-package hasselhoff.aroundtheworld;
+package hasselhoff.aroundtheworld.Activities;
 
 
 import android.content.SharedPreferences;
@@ -22,6 +22,7 @@ import com.google.android.gms.location.places.ui.PlaceSelectionListener;
 import org.json.JSONException;
 import org.json.JSONObject;
 
+import hasselhoff.aroundtheworld.R;
 import hasselhoff.aroundtheworld.database.Preferences;
 import hasselhoff.aroundtheworld.remote_fetch.RemoteFetchNetwork;
 

@@ -47,6 +47,6 @@ public class Network {
     }
 
     public String toString(){
-        return name;
+        return name + " de " + city;
     }
 }

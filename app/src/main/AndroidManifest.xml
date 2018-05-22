@@ -9,40 +9,44 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.AppCompat.Light.NoActionBar">
-        <activity android:name=".MainActivity">
+        <activity android:name=".Activities.MainActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
         <activity
-            android:name=".AdsActivity"
+            android:name=".Activities.AdsActivity"
             android:label="@string/title_activity_ads"
             />
         <activity
-            android:name=".NewsActivity"
+            android:name=".Activities.NewsActivity"
             android:label="@string/title_activity_news">
             </activity>
         <activity
-            android:name=".SocialActivity"
+            android:name=".Activities.SocialActivity"
             android:label="@string/title_activity_social"
             />
         <activity
-            android:name=".ShopActivity"
+            android:name=".Activities.ShopActivity"
             android:label="@string/title_activity_shop" />
-        <activity android:name=".CityActivity"
+        <activity android:name=".Activities.CityActivity"
         android:label ="@string/title_activity_city"/>
         <activity
-            android:name=".MySettingsActivity"
+            android:name=".Activities.MySettingsActivity"
             android:label="@string/title_activity_setting"
             />
         <activity
-            android:name=".UpdateSettingActivity"
+            android:name=".Activities.UpdateSettingActivity"
             android:label="@string/title_activity_update_setting"
             />
         <activity
-            android:name=".LikeActivity"
+            android:name=".Activities.LikeActivity"
             android:label="@string/title_activity_like"
+            />
+        <activity
+            android:name=".Activities.ChatActivity"
+            android:label="@string/title_activity_chat"
             />
         <meta-data
             android:name="com.google.android.geo.API_KEY"

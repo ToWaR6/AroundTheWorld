@@ -43,4 +43,5 @@
     <string name="network">Network :</string>
     <string name="private_sub">Private ?</string>
     <string name="networks_not_found">Networks not found</string>
+    <string name="title_activity_chat">Chat</string>
 </resources>

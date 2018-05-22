@@ -19,6 +19,7 @@ public class Preferences {
     public static final String WEIGHT = "PREFS_WEIGHT_APP";
     public static final String SIZE = "PREFS_SIZE_APP";
     public static final String LIKED_ITEMS = "PREF_LIKED_ITEMS";
+    public static final String LIKED_NETWORKS = "PREF_LIKED_NETWORKS";
     private Preferences(){
 
     }

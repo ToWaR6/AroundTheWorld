@@ -1,4 +1,4 @@
-package hasselhoff.aroundtheworld;
+package hasselhoff.aroundtheworld.Activities;
 
 import android.content.Intent;
 import android.content.SharedPreferences;
@@ -7,6 +7,7 @@ import android.support.v7.widget.Toolbar;
 import android.view.View;
 import android.widget.TextView;
 
+import hasselhoff.aroundtheworld.R;
 import hasselhoff.aroundtheworld.database.Preferences;
 
 

@@ -1,4 +1,4 @@
-package hasselhoff.aroundtheworld;
+package hasselhoff.aroundtheworld.Fragment;
 
 import android.app.AlertDialog;
 import android.app.Dialog;
@@ -14,13 +14,14 @@ import android.widget.EditText;
 import org.json.JSONException;
 import org.json.JSONObject;
 
+import hasselhoff.aroundtheworld.R;
 import hasselhoff.aroundtheworld.database.Preferences;
 import hasselhoff.aroundtheworld.remote_fetch.RemoteFetchNetwork;
 
 import static android.content.Context.MODE_PRIVATE;
 
 
-public class newSubFragment  extends DialogFragment{
+public class newSubFragment extends DialogFragment{
 
 
     public Dialog onCreateDialog(Bundle savedInstanceState){

@@ -1,4 +1,4 @@
-package hasselhoff.aroundtheworld;
+package hasselhoff.aroundtheworld.Adapter;
 
 import android.content.Context;
 import android.content.Intent;
@@ -15,6 +15,7 @@ import android.widget.TextView;
 import java.util.List;
 
 import hasselhoff.aroundtheworld.Model.News;
+import hasselhoff.aroundtheworld.R;
 import hasselhoff.aroundtheworld.remote_fetch.DownloadImageTask;
 
 /**

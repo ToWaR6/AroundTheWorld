@@ -1,4 +1,4 @@
-package hasselhoff.aroundtheworld;
+package hasselhoff.aroundtheworld.Activities;
 
 import android.app.DialogFragment;
 import android.os.Bundle;
@@ -19,7 +19,10 @@ import org.json.JSONObject;
 
 import java.util.ArrayList;
 
+import hasselhoff.aroundtheworld.Adapter.AdapterNetwork;
+import hasselhoff.aroundtheworld.Fragment.newSubFragment;
 import hasselhoff.aroundtheworld.Model.Network;
+import hasselhoff.aroundtheworld.R;
 import hasselhoff.aroundtheworld.remote_fetch.RemoteFetchNetwork;
 
 public class SocialActivity extends SubActivity {

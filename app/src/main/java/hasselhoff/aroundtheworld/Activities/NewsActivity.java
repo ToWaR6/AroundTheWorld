@@ -1,10 +1,14 @@
-package hasselhoff.aroundtheworld;
+package hasselhoff.aroundtheworld.Activities;
 
 
 import android.app.FragmentTransaction;
 import android.os.Bundle;
 import android.support.v7.widget.Toolbar;
 import android.view.View;
+
+import hasselhoff.aroundtheworld.Fragment.NewsFragment;
+import hasselhoff.aroundtheworld.Fragment.WeatherFragment;
+import hasselhoff.aroundtheworld.R;
 
 
 public class NewsActivity extends SubActivity {

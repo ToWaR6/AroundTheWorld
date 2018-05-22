@@ -1,10 +1,12 @@
-package hasselhoff.aroundtheworld;
+package hasselhoff.aroundtheworld.Activities;
 
 import android.os.Bundle;
 import android.support.v7.widget.Toolbar;
 
 import com.google.android.gms.maps.GoogleMap;
 import com.google.android.gms.maps.OnMapReadyCallback;
+
+import hasselhoff.aroundtheworld.R;
 
 public class ShopActivity extends SubActivity implements OnMapReadyCallback {
     GoogleMap googleMap;

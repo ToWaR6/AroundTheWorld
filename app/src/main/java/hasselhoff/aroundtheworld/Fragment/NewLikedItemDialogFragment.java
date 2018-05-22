@@ -1,4 +1,4 @@
-package hasselhoff.aroundtheworld;
+package hasselhoff.aroundtheworld.Fragment;
 
 import android.app.AlertDialog;
 import android.app.Dialog;
@@ -9,6 +9,9 @@ import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.widget.EditText;
+
+import hasselhoff.aroundtheworld.Adapter.AdapterLikeList;
+import hasselhoff.aroundtheworld.R;
 
 
 public class NewLikedItemDialogFragment  extends DialogFragment{

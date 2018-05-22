@@ -1,4 +1,4 @@
-package hasselhoff.aroundtheworld;
+package hasselhoff.aroundtheworld.Activities;
 
 
 import android.app.DialogFragment;
@@ -13,6 +13,9 @@ import android.view.View;
 
 import java.util.ArrayList;
 
+import hasselhoff.aroundtheworld.Adapter.AdapterLikeList;
+import hasselhoff.aroundtheworld.Fragment.NewLikedItemDialogFragment;
+import hasselhoff.aroundtheworld.R;
 import hasselhoff.aroundtheworld.database.Preferences;
 
 public class LikeActivity extends SubActivity {
