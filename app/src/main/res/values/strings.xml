@@ -46,4 +46,5 @@
     <string name="title_activity_chat">Chat</string>
     <string name="error_apiNews">Error loading news\' api</string>
     <string name="longClickNeeded">Press and hold to delete the item</string>
+    <string name="connect_please">Please enter a name first</string>
 </resources>

@@ -47,4 +47,5 @@
     <string name="title_activity_chat">Discussion</string>
     <string name="error_apiNews">Erreur chargement api de news</string>
     <string name="longClickNeeded">Appuyer longuement pour supprimer l\'élément</string>
+    <string name="connect_please">S\'il vous plait renseignez un nom avant de continuer</string>
 </resources>
