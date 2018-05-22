@@ -8,11 +8,9 @@ import android.support.v7.widget.DividerItemDecoration;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.support.v7.widget.Toolbar;
-import android.util.Log;
 import android.view.Menu;
 import android.view.View;
 import android.widget.EditText;
-import android.widget.Toast;
 
 import org.json.JSONArray;
 import org.json.JSONException;
@@ -21,9 +19,7 @@ import org.json.JSONObject;
 import java.util.ArrayList;
 
 import hasselhoff.aroundtheworld.Adapter.AdapterMessage;
-import hasselhoff.aroundtheworld.Adapter.AdapterNetwork;
 import hasselhoff.aroundtheworld.Model.Message;
-import hasselhoff.aroundtheworld.Model.Network;
 import hasselhoff.aroundtheworld.R;
 import hasselhoff.aroundtheworld.database.Preferences;
 import hasselhoff.aroundtheworld.remote_fetch.RemoteFetchNetwork;
@@ -45,6 +41,10 @@ public class ChatActivity extends SubActivity {
         setContentView(R.layout.chat_activity);
         setSupportActionBar((Toolbar) findViewById(R.id.toolbar));
         recyclerView= findViewById(R.id.list);
+        recyclerView.setLayoutManager(new LinearLayoutManager(this));
+        DividerItemDecoration myDivider = new DividerItemDecoration(ChatActivity.this, DividerItemDecoration.VERTICAL);
+        myDivider.setDrawable(ContextCompat.getDrawable(ChatActivity.this, R.drawable.divider));
+        recyclerView.addItemDecoration(myDivider );
         editText = findViewById(R.id.messageToSend);
         handler = new Handler();
         idNetwork = getIntent().getIntExtra("ID_NETWORK",-1);
@@ -82,10 +82,6 @@ public class ChatActivity extends SubActivity {
         } catch (JSONException e) {
             e.printStackTrace();
         }
-        recyclerView.setLayoutManager(new LinearLayoutManager(this));
-        DividerItemDecoration myDivider = new DividerItemDecoration(ChatActivity.this, DividerItemDecoration.VERTICAL);
-        myDivider.setDrawable(ContextCompat.getDrawable(ChatActivity.this, R.drawable.divider));
-        recyclerView.addItemDecoration(myDivider );
         recyclerView.setAdapter(new AdapterMessage(this,messages));
     }
 
