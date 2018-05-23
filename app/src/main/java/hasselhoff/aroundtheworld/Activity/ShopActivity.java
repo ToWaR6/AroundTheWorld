@@ -29,7 +29,6 @@ public class ShopActivity extends SubActivity implements OnMapReadyCallback {
         mapFragment.getMapAsync(ShopActivity.this);
     }
 
-
     @Override
     public void onMapReady(GoogleMap googleMap) {
         this.googleMap = googleMap;
