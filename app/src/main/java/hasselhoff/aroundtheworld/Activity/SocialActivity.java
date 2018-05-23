@@ -1,6 +1,7 @@
 package hasselhoff.aroundtheworld.Activity;
 
 import android.app.DialogFragment;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.os.Handler;
 import android.support.v4.content.ContextCompat;
@@ -23,6 +24,7 @@ import hasselhoff.aroundtheworld.Adapter.AdapterNetwork;
 import hasselhoff.aroundtheworld.Fragment.newSubFragment;
 import hasselhoff.aroundtheworld.Model.Network;
 import hasselhoff.aroundtheworld.R;
+import hasselhoff.aroundtheworld.database.Preferences;
 import hasselhoff.aroundtheworld.remote_fetch.RemoteFetchNetwork;
 
 public class SocialActivity extends SubActivity {
@@ -90,10 +92,13 @@ public class SocialActivity extends SubActivity {
         JSONObject network;
         for (int i = 0; i < arrayNetwork.length(); i++) {
             network = ((JSONObject) arrayNetwork.get(i));
-            list.add(new Network(network.getInt("app_network_number_subscriber"),network.getString("app_network_private"),network.getString("app_network_name")
-                    ,network.getString("app_network_city"),network.getInt("app_network_id"),network.getString("app_network_id_user")));
+            SharedPreferences sharedPreferences = getBaseContext().getSharedPreferences(Preferences.PREFS,MODE_PRIVATE);
+            String currentCity = sharedPreferences.getString(Preferences.CITY,"");
+            if(currentCity.equals(network.getString("app_network_city")) && network.getInt("app_network_private")!=1){
+                list.add(new Network(network.getInt("app_network_number_subscriber"),network.getString("app_network_private"),network.getString("app_network_name")
+                        ,network.getString("app_network_city"),network.getInt("app_network_id"),network.getString("app_network_id_user")));
+            }
         }
-        Log.i("LISt",list.toString());
         return list;
     }
 }

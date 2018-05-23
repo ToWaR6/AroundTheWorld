@@ -11,6 +11,7 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 import java.util.ArrayList;
+import java.util.Collections;
 
 import hasselhoff.aroundtheworld.Activity.ChatActivity;
 import hasselhoff.aroundtheworld.Model.Network;
@@ -53,7 +54,12 @@ public class AdapterNetwork extends RecyclerView.Adapter<AdapterNetwork.MyViewHo
     public int getItemCount() {
         return this.networks.size();
     }
+    public void add(Network network){
+        this.networks.add(network);
+        int position = this.networks.indexOf(network);
+        notifyItemInserted(position);
 
+    }
     protected class MyViewHolder extends RecyclerView.ViewHolder{
         private TextView itemTextView;
         private ImageView sub;

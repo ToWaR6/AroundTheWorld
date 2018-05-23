@@ -1,9 +1,11 @@
 package hasselhoff.aroundtheworld.Activity;
 
 import android.content.SharedPreferences;
+import android.database.DatabaseUtils;
 import android.os.Bundle;
 import android.os.Handler;
 import android.support.v7.widget.Toolbar;
+import android.text.Html;
 import android.util.Log;
 import android.view.View;
 import android.widget.EditText;
@@ -63,7 +65,8 @@ public class UpdateSettingActivity extends SubActivity {
         int id = sharedPreferences.getInt(Preferences.ID,-1);
         final JSONObject  postData = new JSONObject();
         try {
-            postData.put("name",name);
+
+            postData.put("name", name);
             postData.put("first_name",firstName);
             postData.put("birthday",birthday);
             postData.put("weight",weight);
