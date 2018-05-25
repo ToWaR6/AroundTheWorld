@@ -34,7 +34,13 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.MyViewHo
     public void onBindViewHolder(MyViewHolder holder, int position) {
         holder.display(messages.get(position));
     }
-
+    public int last(){
+        return messages.size();
+    }
+    public void add(Message m){
+        messages.add(m);
+        notifyItemInserted(messages.size());
+    }
     @Override
     public int getItemCount() {
             return this.messages.size();

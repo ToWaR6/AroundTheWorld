@@ -52,7 +52,6 @@ public class ChatActivity extends SubActivity {
             updateChat();
         }
     }
-
     public void updateChat(){
         final JSONObject postData= new JSONObject();
         try {
@@ -78,13 +77,13 @@ public class ChatActivity extends SubActivity {
     public void renderMessages(JSONObject json){
         ArrayList<Message> messages = new ArrayList();
         try {
-            messages = getNetworkFromJson(json);
+            messages = getMessagesFromJson(json);
         } catch (JSONException e) {
             e.printStackTrace();
         }
         recyclerView.setAdapter(new AdapterMessage(this,messages));
+        recyclerView.smoothScrollToPosition(messages.size());
     }
-
     public void sendMessage(View v){
         SharedPreferences sharedPreferences = getSharedPreferences(Preferences.PREFS,MODE_PRIVATE);
         int id = sharedPreferences.getInt(Preferences.ID,-1);
@@ -107,7 +106,7 @@ public class ChatActivity extends SubActivity {
                     if(json!=null){
                         handler.post(new Runnable(){
                             public void run(){
-                                renderMessages(json);
+                                    renderMessages(json);
                             }
                         });
                     }
@@ -115,14 +114,19 @@ public class ChatActivity extends SubActivity {
             }.start();
         }
     }
+    private Message getMessageFromJSON(JSONObject json) throws JSONException {
+        return new Message(json.getString("app_message_content"),json.getString("app_message_timestamp"), json.getString("app_user_name"),
+                    json.getString("app_user_first_name"));
 
-    private ArrayList<Message> getNetworkFromJson(JSONObject json) throws JSONException {
+
+    }
+    private ArrayList<Message> getMessagesFromJson(JSONObject json) throws JSONException {
         ArrayList<Message> list = new ArrayList();
         JSONArray arrayNetwork = json.getJSONArray("messages");
         JSONObject message;
         for (int i = 0; i < arrayNetwork.length(); i++) {
             message = ((JSONObject) arrayNetwork.get(i));
-            list.add(new Message(message.getString("app_message_content"),message.getString("app_message_timestamp")));
+            list.add(getMessageFromJSON(message));
         }
         return list;
     }
