@@ -5,6 +5,7 @@ xmlns:app="http://schemas.android.com/apk/res-auto">
 <item
     android:id="@+id/menu_social"
     android:icon="@drawable/ic_refresh"
+    android:onClick="refreshAction"
     android:orderInCategory="100"
     app:showAsAction="always"
     android:actionLayout="@layout/toolbar_actionbar"

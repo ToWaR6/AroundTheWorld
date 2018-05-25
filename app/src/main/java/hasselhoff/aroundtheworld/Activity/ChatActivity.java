@@ -9,6 +9,7 @@ import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.support.v7.widget.Toolbar;
 import android.view.Menu;
+import android.view.MenuItem;
 import android.view.View;
 import android.widget.EditText;
 
@@ -48,6 +49,11 @@ public class ChatActivity extends SubActivity {
         editText = findViewById(R.id.messageToSend);
         handler = new Handler();
         idNetwork = getIntent().getIntExtra("ID_NETWORK",-1);
+        if(idNetwork!=1){
+            updateChat();
+        }
+    }
+    public void refreshAction(MenuItem v){
         if(idNetwork!=1){
             updateChat();
         }
